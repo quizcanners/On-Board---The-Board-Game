@@ -1,29 +1,22 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using PlayerAndEditorGUI;
+using QuizCannersUtilities;
 using UnityEngine;
 using static QuizCannersUtilities.QcUtils;
 
 #if UNITY_EDITOR
 using UnityEditor;
 #endif
-namespace NodeNotes.BoardGame
+namespace DeckRenderer
 {
 
     [ExecuteAlways]
     public class CardsRenderer : MonoBehaviour, IPEGI
     {
-
         public ScreenShootTaker screenGrabber = new ScreenShootTaker();
-
-        public bool Inspect()
-        {
-            var changed = false;
-
-            screenGrabber.Nested_Inspect();
-
-            return changed;
-        }
+        
+        public List<CardsRepository> deckRepository = new List<CardsRepository>();
 
         void OnPostRender() => screenGrabber.OnPostRender();
 
@@ -31,6 +24,24 @@ namespace NodeNotes.BoardGame
         {
 
         }
+
+        #region Inspector
+
+        private int _inspectedStuff = -1;
+
+        private int _inspectedDeck = -1;
+
+        public bool Inspect()
+        {
+            var changed = pegi.toggleDefaultInspector(this);
+
+            "Screen Grabber".enter_Inspect(screenGrabber, ref _inspectedStuff, 0).nl(ref changed); 
+
+            "Decks".enter_List_UObj(ref deckRepository,ref _inspectedDeck, ref _inspectedStuff, 1).nl(ref changed);
+
+            return changed;
+        }
+        #endregion
     }
 
 

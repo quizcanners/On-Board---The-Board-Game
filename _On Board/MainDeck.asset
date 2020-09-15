@@ -1,0 +1,23 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8277eef65cbe3e74c91667d849291688, type: 3}
+  m_Name: MainDeck
+  m_EditorClassIdentifier: 
+  parcerForCards:
+    editUrl: https://docs.google.com/spreadsheets/d/e/2PACX-1vT-BGy1yoP7zTtoZuToaCDycH7TkracEAepyE0CAPVtC88iC4ZtBVWU2yLWasp6wft9rq7k3go-ICgZ/pub?output=csv
+    url: https://docs.google.com/spreadsheets/d/e/2PACX-1vT-BGy1yoP7zTtoZuToaCDycH7TkracEAepyE0CAPVtC88iC4ZtBVWU2yLWasp6wft9rq7k3go-ICgZ/pub?
+    pages:
+    - pageName: Journey Resources
+      pageIndex: 46634689
+    - pageName: Blackout Assistance
+      pageIndex: 218425524
+    _selectedPage: 1

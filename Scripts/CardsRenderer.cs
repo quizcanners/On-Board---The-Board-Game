@@ -14,15 +14,25 @@ namespace DeckRenderer
     [ExecuteAlways]
     public class CardsRenderer : MonoBehaviour, IPEGI
     {
+        public static CardsRenderer instance;
+
         public ScreenShootTaker screenGrabber = new ScreenShootTaker();
         
         public List<CardsRepository> deckRepository = new List<CardsRepository>();
 
-        void OnPostRender() => screenGrabber.OnPostRender();
+        void OnPostRender()
+        {
+            screenGrabber.OnPostRender();
+        }
+
+        void OnEnable()
+        {
+            instance = this;
+        }
 
         void Update()
         {
-
+            
         }
 
         #region Inspector
@@ -34,6 +44,14 @@ namespace DeckRenderer
         public bool Inspect()
         {
             var changed = pegi.toggleDefaultInspector(this);
+
+            if (icon.Refresh.Click())
+            {
+                _inspectedStuff = -1;
+                _inspectedDeck = -1;
+            }
+
+            pegi.nl();
 
             "Screen Grabber".enter_Inspect(screenGrabber, ref _inspectedStuff, 0).nl(ref changed); 
 

@@ -21,3 +21,28 @@ MonoBehaviour:
     - pageName: Blackout Assistance
       pageIndex: 218425524
     _selectedPage: 1
+  cards:
+  - name: New CardPrototype
+    description: 
+    type: 
+    sabotague: 
+  - name: Test 0
+    description: Test Description 0
+    type: 
+    sabotague: 
+  - name: Test 1
+    description: Test Description 1
+    type: 
+    sabotague: 
+  - name: Test 2
+    description: Test Description 2
+    type: 
+    sabotague: 
+  - name: Test 3
+    description: Test Description 3
+    type: 
+    sabotague: 
+  - name: Test 4
+    description: Test Description 4
+    type: 
+    sabotague: 

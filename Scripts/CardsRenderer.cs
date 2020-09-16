@@ -20,6 +20,8 @@ namespace DeckRenderer
         
         public List<CardsRepository> deckRepository = new List<CardsRepository>();
 
+        public CardDesign cardDesign;
+
         void OnPostRender()
         {
             screenGrabber.OnPostRender();

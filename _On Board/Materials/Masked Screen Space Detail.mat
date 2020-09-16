@@ -36,7 +36,7 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _Details:
-        m_Texture: {fileID: 2800000, guid: 5bea4e1496cbc6549b17ee183d29e52c, type: 3}
+        m_Texture: {fileID: 2800000, guid: 02b1e8947b1441246a4a01e96cc524e4, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _EmissionMap:
@@ -68,7 +68,7 @@ Material:
     - _GlossMapScale: 1
     - _Glossiness: 0.5
     - _GlossyReflections: 1
-    - _Grey: 0.594
+    - _Grey: 1
     - _Metallic: 0
     - _Mode: 0
     - _OcclusionStrength: 1
@@ -83,7 +83,7 @@ Material:
     - _StencilWriteMask: 255
     - _UVSec: 0
     - _UseUIAlphaClip: 0
-    - _Visibility: 0
+    - _Visibility: 0.633
     - _ZWrite: 1
     m_Colors:
     - _Color: {r: 1, g: 1, b: 1, a: 1}

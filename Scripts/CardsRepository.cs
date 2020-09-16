@@ -1,9 +1,11 @@
-﻿using System;
-using QuizCannersUtilities;
+﻿using QuizCannersUtilities;
 using System.Collections;
 using System.Collections.Generic;
 using PlayerAndEditorGUI;
 using UnityEngine;
+#if UNITY_EDITOR
+using UnityEditor;
+#endif
 
 namespace DeckRenderer
 {
@@ -14,10 +16,8 @@ namespace DeckRenderer
 
         protected CardsRenderer Rederer => CardsRenderer.instance;
 
-        protected List<CardPrototype> cards = new List<CardPrototype>();
-
-
-
+        [SerializeField] protected List<CardPrototype> cards = new List<CardPrototype>();
+        
         protected IEnumerator Download()
         {
             parcerForCards.StartDownload();
@@ -81,4 +81,10 @@ namespace DeckRenderer
         #endregion
 
     }
+
+#if UNITY_EDITOR
+    [CustomEditor(typeof(CardsRepository))]
+    public class CardsRepositoryDrawer : PEGI_Inspector_SO<CardsRepository> { }
+#endif
+
 }

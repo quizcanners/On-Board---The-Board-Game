@@ -10,6 +10,8 @@ namespace DeckRenderer
     [Serializable]
     public class CardPrototype : IPEGI, IPEGI_ListInspect, IGotName, IGotIndex, IJObjectCustom
     {
+        protected CardsRenderer Rederer => CardsRenderer.instance;
+
         [SerializeField]
         protected string name;
 
@@ -28,6 +30,8 @@ namespace DeckRenderer
         public int IndexForPEGI { get; set; }
 
         public string description;
+        public string type;
+        public string sabotague;
 
         #region Decoding
 
@@ -48,9 +52,17 @@ namespace DeckRenderer
 
         #region Inspector
 
+        private void FillInspect()
+        {
+            if (Rederer.cardDesign.ActivePrototype != this && icon.Play.Click())
+                Rederer.cardDesign.ActivePrototype = this;
+        }
+
         public virtual bool Inspect()
         {
             var changed = false;
+
+            FillInspect();
 
             "Name".edit(60, ref name).nl();
 
@@ -67,7 +79,7 @@ namespace DeckRenderer
 
             this.inspect_Name();
 
-
+            FillInspect();
 
             if (icon.Enter.Click())
                 edited = ind;

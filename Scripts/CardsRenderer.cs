@@ -18,10 +18,12 @@ namespace DeckRenderer
 
         public ScreenShootTaker screenGrabber = new ScreenShootTaker();
         
-        public List<CardsRepository> deckRepository = new List<CardsRepository>();
+        public List<CardsRepository> decks = new List<CardsRepository>();
 
-        public CardDesign cardDesign;
+        public Canvas canvas;
 
+        public CardDesignBase cardDesignInstance;
+        
         void OnPostRender()
         {
             screenGrabber.OnPostRender();
@@ -32,9 +34,54 @@ namespace DeckRenderer
             instance = this;
         }
 
-        void Update()
+        private bool _coroInProgress;
+
+        public bool IsRendering => _coroInProgress;
+
+        public void RenderAllTheCards(CardsRepository deck)
         {
-            
+            StartCoroutine(RenderAllTheCardsCoro(deck));
+        }
+
+        public void ShowCard(CardsRepository deck, CardPrototypeBase card = null)
+        {
+            if (cardDesignInstance)
+                cardDesignInstance.gameObject.DestroyWhatever();
+
+            if (!deck.cardDesignPrefab)
+            {
+                Debug.LogError("No design prefab in " + deck.name, deck);
+                return;
+            }
+
+            cardDesignInstance = Instantiate(deck.cardDesignPrefab, canvas.transform);
+
+            if (card != null)
+                cardDesignInstance.ActivePrototype = card;
+        }
+
+        private IEnumerator RenderAllTheCardsCoro(CardsRepository deck)
+        {
+            ShowCard(deck);
+
+            if (!cardDesignInstance)
+                yield break;
+
+            _coroInProgress = true;
+
+            screenGrabber.folderName = "Deck Renders/{0}".F(deck.name);
+
+            foreach (var card in deck.cards)
+            {
+                cardDesignInstance.ActivePrototype = card;
+                screenGrabber.screenShotName = card.NameForPEGI;
+                screenGrabber.RenderToTextureManually();
+                yield return null;
+            }
+
+            _coroInProgress = false;
+
+            yield break;
         }
 
         #region Inspector
@@ -47,17 +94,28 @@ namespace DeckRenderer
         {
             var changed = pegi.toggleDefaultInspector(this);
 
+            pegi.EditorView.Lock_UnlockClick(this); 
+
+            if (!canvas)
+                "Canvas".edit(ref canvas);
+
             if (icon.Refresh.Click())
             {
                 _inspectedStuff = -1;
                 _inspectedDeck = -1;
             }
 
+            if (_coroInProgress)
+                "Rendering...".write();
+
             pegi.nl();
+
+            if (cardDesignInstance && "Clear prefab".Click().nl())
+                cardDesignInstance.gameObject.DestroyWhatever();
 
             "Screen Grabber".enter_Inspect(screenGrabber, ref _inspectedStuff, 0).nl(ref changed); 
 
-            "Decks".enter_List_UObj(ref deckRepository,ref _inspectedDeck, ref _inspectedStuff, 1).nl(ref changed);
+            "Decks".enter_List_UObj(ref decks,ref _inspectedDeck, ref _inspectedStuff, 1).nl(ref changed);
 
             return changed;
         }

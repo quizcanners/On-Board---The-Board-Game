@@ -16,7 +16,9 @@ namespace DeckRenderer
 
         protected CardsRenderer Rederer => CardsRenderer.instance;
 
-        [SerializeField] protected List<CardPrototype> cards = new List<CardPrototype>();
+        public CardDesignBase cardDesignPrefab;
+
+        [SerializeField] public List<CardPrototypeBase> cards = new List<CardPrototypeBase>();
         
         protected IEnumerator Download()
         {
@@ -33,18 +35,30 @@ namespace DeckRenderer
         private int _inspectedStuff = -1;
         private int _inspectedCard = -1;
 
+        public static CardsRepository inspected;
+
         public bool Inspect()
         {
-            var changed = false;
+            inspected = this;
 
-            if (parcerForCards.IsDownloading() == false)
+            var changed = pegi.toggleDefaultInspector(this);
+            
+            if (_inspectedStuff == -1 && cardDesignPrefab)
             {
-                if ("Download & Update {0} List".F(parcerForCards.SelectedPage.NameForDisplayPEGI()).Click())
-                    CardsRenderer.instance.StartCoroutine(Download());
-            }
-            else
-            {
-                "Updating...".write(toolTip: "Downloading...");
+                if (parcerForCards.IsDownloading() == false)
+                {
+
+                    if (Rederer.IsRendering == false &&
+                        "Render".ClickConfirm(confirmationTag: "rndDeck", toolTip: "Render all cards?"))
+                        Rederer.RenderAllTheCards(this);
+
+                    if ("Download & Update {0} List".F(parcerForCards.SelectedPage.NameForDisplayPEGI()).Click())
+                        CardsRenderer.instance.StartCoroutine(Download());
+                }
+                else
+                {
+                    "Updating...".write(toolTip: "Downloading...");
+                }
             }
 
             pegi.nl();
@@ -52,6 +66,11 @@ namespace DeckRenderer
             parcerForCards.enter_Inspect(ref _inspectedStuff, 0).nl();//Nested_Inspect();
             
             "Cards".enter_List(ref cards, ref _inspectedCard, ref _inspectedStuff, 1).nl();
+
+            if (_inspectedStuff == -1 || !cardDesignPrefab)
+                "Card Design".edit(90, ref cardDesignPrefab).nl();
+
+            inspected = null;
 
             return changed;
         }
@@ -74,7 +93,7 @@ namespace DeckRenderer
                 edited = ind;
 
             this.ClickHighlight();
-
+            
             return false;
         }
 

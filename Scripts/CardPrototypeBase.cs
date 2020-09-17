@@ -8,12 +8,14 @@ using UnityEngine;
 namespace DeckRenderer
 {
     [Serializable]
-    public class CardPrototype : IPEGI, IPEGI_ListInspect, IGotName, IGotIndex, IJObjectCustom
+    public class CardPrototypeBase : IPEGI, IPEGI_ListInspect, IGotName, IGotIndex, IJObjectCustom
     {
-        protected CardsRenderer Rederer => CardsRenderer.instance;
+        protected CardsRenderer CardRederer => CardsRenderer.instance;
 
         [SerializeField]
         protected string name;
+        [SerializeField]
+        protected int index;
 
         public string NameForPEGI
         {
@@ -27,7 +29,17 @@ namespace DeckRenderer
             }
         }
 
-        public int IndexForPEGI { get; set; }
+        public int IndexForPEGI
+        {
+            get
+            {
+                return index;
+            }
+            set
+            {
+                index = value;
+            }
+        }
 
         public string description;
         public string type;
@@ -54,8 +66,9 @@ namespace DeckRenderer
 
         private void FillInspect()
         {
-            if (Rederer.cardDesign.ActivePrototype != this && icon.Play.Click())
-                Rederer.cardDesign.ActivePrototype = this;
+            if (CardsRepository.inspected.cardDesignPrefab && icon.Play.Click())
+                CardRederer.ShowCard(CardsRepository.inspected, this);
+               // Rederer.cardDesign.ActivePrototype = this;
         }
 
         public virtual bool Inspect()

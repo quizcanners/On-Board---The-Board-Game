@@ -7,7 +7,7 @@ using UnityEngine;
 
 namespace DeckRenderer
 {
-    public class CardDesign : MonoBehaviour, IPEGI
+    public class CardDesignBase : MonoBehaviour, IPEGI
     {
         public TextMeshProUGUI Type;
         public TextMeshProUGUI Name;
@@ -19,9 +19,9 @@ namespace DeckRenderer
         public TextMeshProUGUI SabotagueDescription;
 
 
-        [NonSerialized] private CardPrototype _activePrototype;
+        [NonSerialized] private CardPrototypeBase _activePrototype;
 
-        public CardPrototype ActivePrototype
+        public CardPrototypeBase ActivePrototype
         {
             get
             {
@@ -34,17 +34,23 @@ namespace DeckRenderer
             }
         }
 
+        protected void TrySet(TextMeshProUGUI element, string text)
+        {
+            if (element)
+                element.text = text;
+        }
+
         public void Fill()
         {
             if (_activePrototype != null)
             {
-                Name.text = _activePrototype.NameForPEGI;
-                Description.text = _activePrototype.description;
+                TrySet(Name, _activePrototype.NameForPEGI);
+                TrySet(Description, _activePrototype.description);
             }
             else
             {
-                Name.text = "No Prototype";
-                Description.text = "No Prototype";
+                TrySet(Name, "No Prototype");
+                TrySet(Description, "No Prototype");
             }
         }
 

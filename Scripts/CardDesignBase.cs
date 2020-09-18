@@ -12,24 +12,22 @@ namespace DeckRenderer
         public TextMeshProUGUI Type;
         public TextMeshProUGUI Name;
         public TextMeshProUGUI Description;
-
-        [Header("Impostor section")]
-        public TextMeshProUGUI SabotagueTypeRequirement;
-        public TextMeshProUGUI SabotagueResult;
-        public TextMeshProUGUI SabotagueDescription;
+        public TextMeshProUGUI Lore;
 
 
-        [NonSerialized] private CardPrototypeBase _activePrototype;
+
+
+        [NonSerialized] protected CardPrototypeBase activePrototype;
 
         public CardPrototypeBase ActivePrototype
         {
             get
             {
-                return _activePrototype;
+                return activePrototype;
             }
             set
             {
-                _activePrototype = value;
+                activePrototype = value;
                 Fill();
             }
         }
@@ -40,17 +38,25 @@ namespace DeckRenderer
                 element.text = text;
         }
 
-        public void Fill()
+        protected void TrySetEnable(Component cmp, bool value)
         {
-            if (_activePrototype != null)
+            if (cmp)
+                cmp.gameObject.SetActive(value);
+        }
+
+        public virtual void Fill()
+        {
+            if (activePrototype != null)
             {
-                TrySet(Name, _activePrototype.NameForPEGI);
-                TrySet(Description, _activePrototype.description);
+                TrySet(Name, activePrototype.NameForPEGI);
+                TrySet(Description, activePrototype.description);
+                TrySet(Lore, activePrototype.lore);
             }
             else
             {
                 TrySet(Name, "No Prototype");
                 TrySet(Description, "No Prototype");
+                TrySet(Lore, "No Prototype");
             }
         }
 
@@ -60,9 +66,9 @@ namespace DeckRenderer
         {
             var changed = false;
 
-            if (_activePrototype != null)
+            if (activePrototype != null)
             {
-                _activePrototype.Nested_Inspect().nl(ref changed);
+                activePrototype.Nested_Inspect().nl(ref changed);
             }
 
             if (changed)

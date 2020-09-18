@@ -18,7 +18,7 @@ namespace DeckRenderer
 
         public ScreenShootTaker screenGrabber = new ScreenShootTaker();
         
-        public List<CardsRepository> decks = new List<CardsRepository>();
+        public List<DeckBase> decks = new List<DeckBase>();
 
         public Canvas canvas;
 
@@ -38,12 +38,12 @@ namespace DeckRenderer
 
         public bool IsRendering => _coroInProgress;
 
-        public void RenderAllTheCards(CardsRepository deck)
+        public void RenderAllTheCards(DeckBase deck)
         {
             StartCoroutine(RenderAllTheCardsCoro(deck));
         }
 
-        public void ShowCard(CardsRepository deck, CardPrototypeBase card = null)
+        public void ShowCard(DeckBase deck, CardPrototypeBase card = null)
         {
             if (cardDesignInstance)
                 cardDesignInstance.gameObject.DestroyWhatever();
@@ -60,7 +60,7 @@ namespace DeckRenderer
                 cardDesignInstance.ActivePrototype = card;
         }
 
-        private IEnumerator RenderAllTheCardsCoro(CardsRepository deck)
+        private IEnumerator RenderAllTheCardsCoro(DeckBase deck)
         {
             ShowCard(deck);
 
@@ -71,7 +71,7 @@ namespace DeckRenderer
 
             screenGrabber.folderName = "Deck Renders/{0}".F(deck.name);
 
-            foreach (var card in deck.cards)
+            foreach (var card in deck)
             {
                 cardDesignInstance.ActivePrototype = card;
                 screenGrabber.screenShotName = card.NameForPEGI;

@@ -9,9 +9,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8277eef65cbe3e74c91667d849291688, type: 3}
+  m_Script: {fileID: 11500000, guid: 2cd0ada29cdda634ba988d33ddebb374, type: 3}
   m_Name: Dooms Deck
   m_EditorClassIdentifier: 
+  cardDesignPrefab: {fileID: 3457841581854097753, guid: 5881c85dae8faaa4aafab65b78661ece, type: 3}
   parcerForCards:
     editUrl: https://docs.google.com/spreadsheets/d/1RaO8Y5K7ccYcmw8_Nvfhbv732uFWkNKlXMcjGPoII_8/edit#gid=0
     url: https://docs.google.com/spreadsheets/d/e/2PACX-1vT-BGy1yoP7zTtoZuToaCDycH7TkracEAepyE0CAPVtC88iC4ZtBVWU2yLWasp6wft9rq7k3go-ICgZ/pub?
@@ -19,30 +20,27 @@ MonoBehaviour:
     - pageName: Doom
       pageIndex: 0
     _selectedPage: 0
-  cardDesignPrefab: {fileID: 5486289759495475016, guid: 3ffe21e01969c784384ef226262dd8a9, type: 3}
+    columns:
+    - Id
+    - Name
+    - Description
+    - Lore
+    - Image
+    - Use Tools
+    - Infection
+    - Misfortune
+    - Ocult
+    - Madness
+    - Special
   cards:
-  - name: Test 0
+  - name: Regret
     index: 1
-    description: Test Description 0
-    type: 
-    sabotague: 
-  - name: Test 1
-    index: 2
-    description: Test Description 1
-    type: 
-    sabotague: 
-  - name: Test 2
-    index: 3
-    description: Test Description 2
-    type: 
-    sabotague: 
-  - name: Test 3
-    index: 4
-    description: Test Description 3
-    type: 
-    sabotague: 
-  - name: Test 4
-    index: 5
-    description: Test Description 4
-    type: 
-    sabotague: 
+    count: 1
+    description: Being away from home is hard. You can't forgive others for abbandoning
+      the earth.
+    lore: 
+    useTools: 1
+    infection: 0
+    misfortune: 1
+    ocult: 0
+    madness: 0

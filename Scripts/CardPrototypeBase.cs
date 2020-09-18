@@ -8,7 +8,7 @@ using UnityEngine;
 namespace DeckRenderer
 {
     [Serializable]
-    public class CardPrototypeBase : IPEGI, IPEGI_ListInspect, IGotName, IGotIndex, IJObjectCustom
+    public class CardPrototypeBase : IPEGI, IPEGI_ListInspect, IGotName, IGotIndex, ICfgDecode
     {
         protected CardsRenderer CardRederer => CardsRenderer.instance;
 
@@ -16,6 +16,12 @@ namespace DeckRenderer
         protected string name;
         [SerializeField]
         protected int index;
+        [SerializeField]
+        public int count = 1;
+        [SerializeField]
+        public string description;
+        [SerializeField]
+        public string lore;
 
         public string NameForPEGI
         {
@@ -40,34 +46,28 @@ namespace DeckRenderer
                 index = value;
             }
         }
-
-        public string description;
-        public string type;
-        public string sabotague;
-
+        
         #region Decoding
-
-        public void Decode(string key, JToken token)
+        public virtual void Decode(string key, CfgData token)
         {
             switch (key)
             {
-                case "Id": IndexForPEGI = (int)token; break;
-                case "Name": NameForPEGI = (string)token; break;
-                case "Description": description = (string)token; break;
-
+                case "Id": token.ToInt(ref index); break;
+                case "Name": NameForPEGI = token.ToString(); break;
+                case "Count": count = token.ToInt(1); break;
+                case "Description": description = token.ToString(); break;
+                case "Lore": lore = token.ToString(); break;
             }
         }
 
         #endregion
-
-
-
+        
         #region Inspector
 
-        private void FillInspect()
+        protected void FillInspect()
         {
-            if (CardsRepository.inspected.cardDesignPrefab && icon.Play.Click())
-                CardRederer.ShowCard(CardsRepository.inspected, this);
+            if (ResourcesDeck.inspected.cardDesignPrefab && icon.Play.Click())
+                CardRederer.ShowCard(ResourcesDeck.inspected, this);
                // Rederer.cardDesign.ActivePrototype = this;
         }
 
@@ -80,6 +80,8 @@ namespace DeckRenderer
             "Name".edit(60, ref name).nl();
 
             "Description".editBig(ref description);
+
+            "Lore".editBig(ref lore);
 
             return changed;
         }
@@ -99,7 +101,7 @@ namespace DeckRenderer
 
             return changed;
         }
-
+        
         #endregion
 
     }

@@ -9,6 +9,9 @@ namespace DeckRenderer.OnBoard
 {
     public class BlackoutCardDesign : CardDesignBase
     {
-       
+        [Header("Impostor section")]
+        public TextMeshProUGUI SabotagueTypeRequirement;
+        public TextMeshProUGUI SabotagueResult;
+        public TextMeshProUGUI SabotagueDescription;
     }
 }

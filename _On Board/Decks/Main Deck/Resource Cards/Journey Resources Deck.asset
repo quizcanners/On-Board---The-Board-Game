@@ -24,34 +24,41 @@ MonoBehaviour:
     - Id
     - Name
     - Description
+    - Lore
+    - Count
   cards:
   - name: Test 0
     index: 1
     count: 1
-    description: 
+    description: Test Description 0
+    lore: 
     type: 
     sabotague: 
   - name: Test 1
     index: 2
     count: 1
-    description: 
+    description: Test Description 1
+    lore: 
     type: 
     sabotague: 
   - name: Test 2
     index: 3
     count: 1
-    description: 
+    description: Test Description 2
+    lore: 
     type: 
     sabotague: 
   - name: Test 3
     index: 4
     count: 1
-    description: 
+    description: Test Description 3
+    lore: 
     type: 
     sabotague: 
   - name: Test 4
     index: 5
     count: 1
-    description: 
+    description: Test Description 4
+    lore: 
     type: 
     sabotague: 

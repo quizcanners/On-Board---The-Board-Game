@@ -12,6 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8277eef65cbe3e74c91667d849291688, type: 3}
   m_Name: Blueprints Deck
   m_EditorClassIdentifier: 
+  cardDesignPrefab: {fileID: 3214533141802991896, guid: a4610ebe00e083649b2b1ca9fcee404b, type: 3}
   parcerForCards:
     editUrl: https://docs.google.com/spreadsheets/d/1RaO8Y5K7ccYcmw8_Nvfhbv732uFWkNKlXMcjGPoII_8/edit#gid=0
     url: https://docs.google.com/spreadsheets/d/e/2PACX-1vT-BGy1yoP7zTtoZuToaCDycH7TkracEAepyE0CAPVtC88iC4ZtBVWU2yLWasp6wft9rq7k3go-ICgZ/pub?
@@ -19,30 +20,40 @@ MonoBehaviour:
     - pageName: Blueprints
       pageIndex: 1100711942
     _selectedPage: 0
-  cardDesignPrefab: {fileID: 5486289759495475016, guid: 3ffe21e01969c784384ef226262dd8a9, type: 3}
+    columns: []
   cards:
   - name: Test 0
     index: 1
+    count: 1
     description: Test Description 0
+    lore: 
     type: 
     sabotague: 
   - name: Test 1
     index: 2
+    count: 1
     description: Test Description 1
+    lore: 
     type: 
     sabotague: 
   - name: Test 2
     index: 3
+    count: 1
     description: Test Description 2
+    lore: 
     type: 
     sabotague: 
   - name: Test 3
     index: 4
+    count: 1
     description: Test Description 3
+    lore: 
     type: 
     sabotague: 
   - name: Test 4
     index: 5
+    count: 1
     description: Test Description 4
+    lore: 
     type: 
     sabotague: 

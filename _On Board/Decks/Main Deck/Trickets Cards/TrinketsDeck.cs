@@ -8,34 +8,29 @@ using UnityEditor;
 
 namespace DeckRenderer
 {
-    [CreateAssetMenu(fileName = "Resource Deck", menuName = "DeckRenderer/OnBoard/Deck/Resources")]
-    public class ResourcesDeck : DeckGeneric<ResourceCardPrototype> {  }
+    [CreateAssetMenu(fileName = "Trinkets Deck", menuName = "DeckRenderer/OnBoard/Deck/Trinkets")]
+    public class TrinketsDeck : DeckGeneric<TrinketsPrototype> {  }
 
 #if UNITY_EDITOR
-    [CustomEditor(typeof(ResourcesDeck))]
-    public class ResourcesDeckDrawer : PEGI_Inspector_SO<ResourcesDeck> { }
+    [CustomEditor(typeof(TrinketsDeck))]
+    public class TrinketsDeckDrawer : PEGI_Inspector_SO<TrinketsDeck> { }
 #endif
 
     [Serializable]
-    public class ResourceCardPrototype : CardPrototypeBase
+    public class TrinketsPrototype : CardPrototypeBase
     {
-       
-        public string type;
-        public string sabotague;
 
         #region Decoding
         public override void Decode(string key, CfgData token)
         {
             switch (key)
             {
-                
                 default: base.Decode(key, token); break;
             }
         }
 
         #endregion
-
-
+        
         public override bool Inspect()
         {
             var changed = base.Inspect();

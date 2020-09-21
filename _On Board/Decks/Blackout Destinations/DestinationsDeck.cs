@@ -8,7 +8,7 @@ using UnityEditor;
 
 namespace DeckRenderer
 {
-    [CreateAssetMenu(fileName = "Destination Deck", menuName = "DeckRenderer/OnBoard/Destinations")]
+    [CreateAssetMenu(fileName = "Destination Deck", menuName = "DeckRenderer/OnBoard/Deck/Destinations")]
     public class DestinationsDeck : DeckGeneric<DestinationCardPrototype> {  }
 
 #if UNITY_EDITOR

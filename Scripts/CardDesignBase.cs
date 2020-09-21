@@ -14,9 +14,8 @@ namespace DeckRenderer
         public TextMeshProUGUI Description;
         public TextMeshProUGUI Lore;
 
-
-
-
+        protected CardsRenderer DeckRederer => CardsRenderer.instance;
+        
         [NonSerialized] protected CardPrototypeBase activePrototype;
 
         public CardPrototypeBase ActivePrototype

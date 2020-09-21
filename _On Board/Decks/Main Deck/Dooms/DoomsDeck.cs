@@ -8,7 +8,7 @@ using UnityEditor;
 
 namespace DeckRenderer
 {
-    [CreateAssetMenu(fileName = "Dooms Deck", menuName = "DeckRenderer/Dooms Deck")]
+    [CreateAssetMenu(fileName = "Dooms Deck", menuName = "DeckRenderer/OnBoard/Deck/Dooms")]
     public class DoomsDeck : DeckGeneric<DoomsPrototype> {  }
 
 #if UNITY_EDITOR

@@ -9,7 +9,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8277eef65cbe3e74c91667d849291688, type: 3}
+  m_Script: {fileID: 11500000, guid: 16d5c374e5fe4434eaa8e7c473bb3833, type: 3}
   m_Name: Blueprints Deck
   m_EditorClassIdentifier: 
   cardDesignPrefab: {fileID: 3214533141802991896, guid: a4610ebe00e083649b2b1ca9fcee404b, type: 3}
@@ -20,40 +20,50 @@ MonoBehaviour:
     - pageName: Blueprints
       pageIndex: 1100711942
     _selectedPage: 0
-    columns: []
+    columns:
+    - Id
+    - Name
+    - Needs
+    - During Journey
+    - During Blackout
+    - Count
+    - Operated by
+    - Operators Count
+    - Construction cost
+  cardResolution: {x: 2500, y: 3500}
   cards:
-  - name: Test 0
+  - name: Safety Boat
     index: 1
-    count: 1
-    description: Test Description 0
+    count: 5
+    description: 
     lore: 
-    type: 
-    sabotague: 
-  - name: Test 1
+    resourcesNeeded: 0
+    diceType: 0
+  - name: Healing room
     index: 2
     count: 1
-    description: Test Description 1
+    description: 
     lore: 
-    type: 
-    sabotague: 
-  - name: Test 2
+    resourcesNeeded: 2
+    diceType: 0
+  - name: Augmentation room
     index: 3
     count: 1
-    description: Test Description 2
+    description: 
     lore: 
-    type: 
-    sabotague: 
-  - name: Test 3
+    resourcesNeeded: 3
+    diceType: 0
+  - name: Security
     index: 4
-    count: 1
-    description: Test Description 3
+    count: 2
+    description: 
     lore: 
-    type: 
-    sabotague: 
-  - name: Test 4
+    resourcesNeeded: 1
+    diceType: 5
+  - name: Study hall
     index: 5
     count: 1
-    description: Test Description 4
+    description: 
     lore: 
-    type: 
-    sabotague: 
+    resourcesNeeded: 1
+    diceType: 0

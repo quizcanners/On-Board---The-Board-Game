@@ -4,6 +4,7 @@ using PlayerAndEditorGUI;
 using QuizCannersUtilities;
 using UnityEngine;
 using static QuizCannersUtilities.QcUtils;
+using DeckRenderer.OnBoard;
 
 #if UNITY_EDITOR
 using UnityEditor;
@@ -17,7 +18,9 @@ namespace DeckRenderer
         public static CardsRenderer instance;
 
         public ScreenShootTaker screenGrabber = new ScreenShootTaker();
-        
+
+        public OnBoardRendererAssets assets;
+
         public List<DeckBase> decks = new List<DeckBase>();
 
         public Canvas canvas;
@@ -70,6 +73,8 @@ namespace DeckRenderer
             _coroInProgress = true;
 
             screenGrabber.folderName = "Deck Renders/{0}".F(deck.name);
+
+            Screen.SetResolution((int)deck.cardResolution.x, (int)deck.cardResolution.y, FullScreenMode.MaximizedWindow);
 
             foreach (var card in deck)
             {

@@ -392,7 +392,6 @@ MonoBehaviour:
       m_Calls: []
   maxHoldForClick: 0.3
   maxMousePositionPixOffsetForClick: 20
-  _modulesStd: mdls|33|StretchedOffset|13|b|0||s|3|100|||
 --- !u!1 &8272262578446945598
 GameObject:
   m_ObjectHideFlags: 0
@@ -487,7 +486,6 @@ MonoBehaviour:
       m_Calls: []
   maxHoldForClick: 0.3
   maxMousePositionPixOffsetForClick: 20
-  _modulesStd: 
 --- !u!1 &8272262578829059189
 GameObject:
   m_ObjectHideFlags: 0
@@ -522,7 +520,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 90}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: -0.000061035}
+  m_AnchoredPosition: {x: 0, y: -0.000061035156}
   m_SizeDelta: {x: 759.9994, y: 0.001953125}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &8272262578829059192
@@ -690,9 +688,7 @@ MonoBehaviour:
   Type: {fileID: 0}
   Name: {fileID: 0}
   Description: {fileID: 0}
-  SabotagueTypeRequirement: {fileID: 0}
-  SabotagueResult: {fileID: 0}
-  SabotagueDescription: {fileID: 0}
+  Lore: {fileID: 0}
 --- !u!1 &8272262580039570089
 GameObject:
   m_ObjectHideFlags: 0
@@ -785,7 +781,6 @@ MonoBehaviour:
       m_Calls: []
   maxHoldForClick: 0.3
   maxMousePositionPixOffsetForClick: 20
-  _modulesStd: mdls|33|StretchedOffset|13|b|0||s|3|100|||
 --- !u!1 &8420942316141723976
 GameObject:
   m_ObjectHideFlags: 0

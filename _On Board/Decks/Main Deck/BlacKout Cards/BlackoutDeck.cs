@@ -8,29 +8,23 @@ using UnityEditor;
 
 namespace DeckRenderer.OnBoard
 {
-    [CreateAssetMenu(fileName = "Blueprints Deck", menuName = "DeckRenderer/OnBoard/Deck/Blueprints")]
-    public class BlueprintsDeck : DeckGeneric<BlueprintPrototype> {  }
+    [CreateAssetMenu(fileName = "Blackout Deck", menuName = "DeckRenderer/OnBoard/Deck/Blackout")]
+    public class BlackoutDeck : DeckGeneric<BlackoutPrototype> {  }
 
 #if UNITY_EDITOR
-    [CustomEditor(typeof(BlueprintsDeck))]
-    public class BlueprintsDeckDrawer : PEGI_Inspector_SO<BlueprintsDeck> { }
+    [CustomEditor(typeof(BlackoutDeck))]
+    public class BlackoutDeckDrawer : PEGI_Inspector_SO<BlackoutDeck> { }
 #endif
 
-
     [Serializable]
-    public class BlueprintPrototype : CardPrototypeBase
+    public class BlackoutPrototype : CardPrototypeBase
     {
-        public int resourcesNeeded = 1;
-        public DiceRole diceType;
-
 
         #region Decoding
         public override void Decode(string key, CfgData token)
         {
             switch (key)
             {
-                case "Operators Count": resourcesNeeded = token.ToInt(); break;
-                case "Operated by": diceType = OnBoardUtils.DiceRoleFrom(token.ToString()); break;
                 default: base.Decode(key, token); break;
             }
         }

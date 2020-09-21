@@ -12,11 +12,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c0bc868f83259a244ab4127faddbcd1c, type: 3}
   m_Name: Destination Deck
   m_EditorClassIdentifier: Assembly-CSharp:DeckRenderer:DestinationDeck
-  cardDesignPrefab: {fileID: 0}
+  cardDesignPrefab: {fileID: 5486289759495475016, guid: c82ac79a6e09c864ca0a619769ca9ac9, type: 3}
   parcerForCards:
     editUrl: https://docs.google.com/spreadsheets/d/XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX/edit#gid=0
     url: https://docs.google.com/spreadsheets/d/e/XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX/pub?
     pages: []
-    _selectedPage: 0
+    _selectedPage: -1
     columns: []
+  cardResolution: {x: 2500, y: 3500}
   cards: []

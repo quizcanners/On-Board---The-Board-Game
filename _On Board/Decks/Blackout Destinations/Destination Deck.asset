@@ -14,10 +14,50 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp:DeckRenderer:DestinationDeck
   cardDesignPrefab: {fileID: 5486289759495475016, guid: c82ac79a6e09c864ca0a619769ca9ac9, type: 3}
   parcerForCards:
-    editUrl: https://docs.google.com/spreadsheets/d/XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX/edit#gid=0
-    url: https://docs.google.com/spreadsheets/d/e/XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX/pub?
-    pages: []
-    _selectedPage: -1
-    columns: []
+    editUrl: https://docs.google.com/spreadsheets/d/1RaO8Y5K7ccYcmw8_Nvfhbv732uFWkNKlXMcjGPoII_8/edit#gid=1339945343
+    url: https://docs.google.com/spreadsheets/d/e/2PACX-1vT-BGy1yoP7zTtoZuToaCDycH7TkracEAepyE0CAPVtC88iC4ZtBVWU2yLWasp6wft9rq7k3go-ICgZ/pub?
+    pages:
+    - pageName: destinations
+      pageIndex: 1339945343
+    _selectedPage: 0
+    columns:
+    - Id
+    - Name
+    - Lore
+    - IsSafe
   cardResolution: {x: 2500, y: 3500}
-  cards: []
+  cards:
+  - name: New Eden
+    index: 1
+    count: 1
+    description: 
+    lore: This planat will make for a new home
+    isSafeToLand: 1
+  - name: Sentient Lure
+    index: 2
+    count: 1
+    description: 
+    lore: Paradise on the surface, digestive truct underneath. What seams like a
+      perfect place at first, turned out to be a trap. In the deep night spores paralize
+      the guests and feed them to the planet below while showing beutiful dreams.
+    isSafeToLand: 0
+  - name: Black hole
+    index: 3
+    count: 1
+    description: 
+    lore: A planet extreamly close to a black hole. By the time you realized where
+      you are managed to escape, the universe around you have entered a Big Rip state.
+      All stars burned out and place is cold now. There is no hope.
+    isSafeToLand: 0
+  - name: Test 3
+    index: 4
+    count: 1
+    description: 
+    lore: Test Description 3
+    isSafeToLand: 0
+  - name: Test 4
+    index: 5
+    count: 1
+    description: 
+    lore: Test Description 4
+    isSafeToLand: 0

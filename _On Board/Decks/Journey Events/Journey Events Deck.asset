@@ -20,30 +20,39 @@ MonoBehaviour:
     - pageName: Events
       pageIndex: 1174207126
     _selectedPage: 0
-    columns: []
+    columns:
+    - Id
+    - Name
+    - Description
+  cardResolution: {x: 2500, y: 3500}
   cards:
   - name: Test 0
     index: 1
     count: 1
     description: Test Description 0
     lore: 
+    penalty: 
   - name: Test 1
     index: 2
     count: 1
     description: Test Description 1
     lore: 
+    penalty: 
   - name: Test 2
     index: 3
     count: 1
     description: Test Description 2
     lore: 
+    penalty: 
   - name: Test 3
     index: 4
     count: 1
     description: Test Description 3
     lore: 
+    penalty: 
   - name: Test 4
     index: 5
     count: 1
     description: Test Description 4
     lore: 
+    penalty: 

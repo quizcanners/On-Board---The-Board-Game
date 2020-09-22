@@ -2,6 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using PlayerAndEditorGUI;
+using QuizCannersUtilities;
 using TMPro;
 using UnityEngine;
 
@@ -78,4 +79,23 @@ namespace DeckRenderer
 
         #endregion
     }
+
+    public abstract class CardDesignGeneric<T> : CardDesignBase where T: CardPrototypeBase
+    {
+
+        public abstract void Fill(T prot);
+
+        public override void Fill()
+        {
+            base.Fill();
+
+            var prot = ActivePrototype as T;
+
+            if (prot != null)
+                Fill(prot);
+            else 
+                Debug.LogError("Couldn't convert {0} to {1}".F(prot, typeof(T).ToString()));
+        }
+    }
+
 }

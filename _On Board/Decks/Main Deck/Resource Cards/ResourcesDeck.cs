@@ -20,15 +20,16 @@ namespace DeckRenderer
     public class ResourceCardPrototype : CardPrototypeBase
     {
        
-        public string type;
         public string sabotague;
+        public string sabotagueType;
 
         #region Decoding
         public override void Decode(string key, CfgData token)
         {
             switch (key)
             {
-                
+                case "Sabotague": sabotague = token.ToString(); break;
+                case "Sabotague Type": sabotagueType = token.ToString(); break; 
                 default: base.Decode(key, token); break;
             }
         }

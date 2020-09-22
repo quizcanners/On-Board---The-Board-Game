@@ -7,8 +7,14 @@ using UnityEngine;
 
 namespace DeckRenderer.OnBoard
 {
-    public class JourneyEventsCardDesign : CardDesignBase
+    public class JourneyEventsCardDesign : CardDesignGeneric<JourneyEventPrototype>
     {
-       
+        public TextMeshProUGUI penalty;
+
+        public override void Fill(JourneyEventPrototype prot)
+        {
+            penalty.text = prot.penalty;
+
+        }
     }
 }

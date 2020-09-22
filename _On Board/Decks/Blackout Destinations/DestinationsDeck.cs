@@ -17,6 +17,18 @@ namespace DeckRenderer
 #endif
 
     [Serializable]
-    public class DestinationCardPrototype : CardPrototypeBase { }
+    public class DestinationCardPrototype : CardPrototypeBase
+    {
+        public bool isSafeToLand;
 
+        public override void Decode(string key, CfgData token)
+        {
+            switch (key)
+            {
+                case "IsSafe": isSafeToLand = token.ToBool("Yes"); break;
+                default: base.Decode(key, token); break;
+            }
+        }
+
+    }
 }

@@ -20,11 +20,16 @@ namespace DeckRenderer.OnBoard
     public class BlackoutPrototype : CardPrototypeBase
     {
 
+        public ImpostorPower power;
+        public string sabotague;
+
         #region Decoding
         public override void Decode(string key, CfgData token)
         {
             switch (key)
             {
+                case "Sabotague Type": power = OnBoardUtils.FearTypeFrom(token.ToString()); break;
+                case "Sabotague": sabotague = token.ToString(); break;
                 default: base.Decode(key, token); break;
             }
         }

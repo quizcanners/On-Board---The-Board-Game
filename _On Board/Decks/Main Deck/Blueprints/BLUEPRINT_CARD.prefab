@@ -1247,9 +1247,9 @@ MonoBehaviour:
   Description: {fileID: 3214533140994969130}
   Lore: {fileID: 3214533139933870665}
   dices:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
+  - {fileID: 3214533140185247306}
+  - {fileID: 5076838161101194385}
+  - {fileID: 7908747244514671264}
 --- !u!222 &3214533141802991897
 CanvasRenderer:
   m_ObjectHideFlags: 0

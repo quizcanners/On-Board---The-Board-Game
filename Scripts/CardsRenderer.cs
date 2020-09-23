@@ -111,7 +111,11 @@ namespace DeckRenderer
             }
 
             if (_coroInProgress)
+            {
                 "Rendering...".write();
+                if (icon.Close.Click("Cancel"))
+                    _coroInProgress = false;
+            }
 
             pegi.nl();
 

@@ -252,7 +252,7 @@ GameObject:
   - component: {fileID: 5486289757691360282}
   - component: {fileID: 5486289757691360281}
   m_Layer: 5
-  m_Name: '[T] Description'
+  m_Name: '[T] Sabotague Description'
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -698,7 +698,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 1}
   m_AnchorMax: {x: 0.5, y: 1}
-  m_AnchoredPosition: {x: -416.8, y: -80.7}
+  m_AnchoredPosition: {x: -416.8, y: -111.86}
   m_SizeDelta: {x: 679.60034, y: 180.55566}
   m_Pivot: {x: 0, y: 0.5}
 --- !u!222 &5486289757799240552
@@ -2214,7 +2214,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Physical
+  m_text: power
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 001e48707a26dee459b63f099800b6e5, type: 2}
   m_sharedMaterial: {fileID: -3495926243711984564, guid: 001e48707a26dee459b63f099800b6e5, type: 2}
@@ -2411,7 +2411,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 5486289759495475022}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 98a64f49b0b410a4cbd83d855e2711aa, type: 3}
+  m_Script: {fileID: 11500000, guid: aacb8fa0e996e09449af590d4ad4f308, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   Type: {fileID: 5486289758013155435}
@@ -2420,7 +2420,7 @@ MonoBehaviour:
   Lore: {fileID: 0}
   SabotagueTypeRequirement: {fileID: 5486289759368943312}
   SabotagueResult: {fileID: 5486289757691360281}
-  SabotagueDescription: {fileID: 0}
+  SabotagueDescription: {fileID: 5486289757691360281}
 --- !u!222 &5486289759495475017
 CanvasRenderer:
   m_ObjectHideFlags: 0

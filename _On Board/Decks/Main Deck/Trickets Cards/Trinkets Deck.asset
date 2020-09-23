@@ -20,30 +20,40 @@ MonoBehaviour:
     - pageName: Trinkets
       pageIndex: 1436967239
     _selectedPage: 0
-    columns: []
+    columns:
+    - Id
+    - Name
+    - Description
+    - Lore
+  cardResolution: {x: 2500, y: 3500}
   cards:
-  - name: Test 0
+  - name: BIble
     index: 1
     count: 1
-    description: Test Description 0
+    description: Negates all occult damage
     lore: 
-  - name: Test 1
+  - name: Rabbit's foot
     index: 2
     count: 1
-    description: Test Description 1
+    description: Negates all misforune damage
     lore: 
-  - name: Test 2
+  - name: Dream catcher
     index: 3
     count: 1
-    description: Test Description 2
+    description: Negates all madness damage
     lore: 
-  - name: Test 3
+  - name: Face mask
     index: 4
     count: 1
-    description: Test Description 3
+    description: Negates all infection damage
     lore: 
-  - name: Test 4
+  - name: Postcard
     index: 5
     count: 1
-    description: Test Description 4
+    description: Saves one personel from all damage
+    lore: 
+  - name: Crystal ball
+    index: 6
+    count: 1
+    description: Cancel penalty from Journey event. Or one negative blackout card.
     lore: 

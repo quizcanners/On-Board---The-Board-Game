@@ -26,12 +26,13 @@ MonoBehaviour:
     - Description
     - Lore
     - Image
-    - Use Tools
+    - Physical
     - Infection
     - Misfortune
     - Ocult
     - Madness
     - Special
+  cardResolution: {x: 2500, y: 3500}
   cards:
   - name: Regret
     index: 1
@@ -39,7 +40,7 @@ MonoBehaviour:
     description: Being away from home is hard. You can't forgive others for abbandoning
       the earth.
     lore: 
-    useTools: 1
+    physical: 0
     infection: 0
     misfortune: 1
     ocult: 0

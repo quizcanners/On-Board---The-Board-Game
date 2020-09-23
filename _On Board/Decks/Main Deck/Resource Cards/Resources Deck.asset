@@ -24,42 +24,44 @@ MonoBehaviour:
     - Id
     - Name
     - Description
+    - Sabotague
     - Lore
     - Count
   cardResolution: {x: 2500, y: 3500}
   cards:
-  - name: Test 0
+  - name: Reconfigure software
     index: 1
     count: 1
     description: Test Description 0
     lore: 
-    type: 
-    sabotague: 
-  - name: Test 1
+    sabotague: Put this into Journey destination deck. Next discovery action will
+      be wasted to discard this.
+    sabotagueType: 
+  - name: Check oxygen pressure
     index: 2
     count: 1
     description: Test Description 1
     lore: 
-    type: 
     sabotague: 
+    sabotagueType: 
   - name: Test 2
     index: 3
     count: 1
     description: Test Description 2
     lore: 
-    type: 
     sabotague: 
+    sabotagueType: 
   - name: Test 3
     index: 4
     count: 1
     description: Test Description 3
     lore: 
-    type: 
     sabotague: 
+    sabotagueType: 
   - name: Test 4
     index: 5
     count: 1
     description: Test Description 4
     lore: 
-    type: 
     sabotague: 
+    sabotagueType: 

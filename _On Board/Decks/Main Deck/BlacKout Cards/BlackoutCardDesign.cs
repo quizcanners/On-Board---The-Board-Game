@@ -7,11 +7,19 @@ using UnityEngine;
 
 namespace DeckRenderer.OnBoard
 {
-    public class BlackoutCardDesign : CardDesignBase
+    public class BlackoutCardDesign : CardDesignGeneric<BlackoutPrototype>
     {
         [Header("Impostor section")]
         public TextMeshProUGUI SabotagueTypeRequirement;
         public TextMeshProUGUI SabotagueResult;
         public TextMeshProUGUI SabotagueDescription;
+
+        public override void Fill(BlackoutPrototype prot)
+        {
+            TrySet(SabotagueTypeRequirement, prot.power.ToString());
+            TrySet(SabotagueDescription, prot.sabotague);
+
+
+        }
     }
 }

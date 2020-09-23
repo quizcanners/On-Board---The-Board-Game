@@ -24,20 +24,24 @@ MonoBehaviour:
     - Id
     - Name
     - Description
+    - Penalty
   cardResolution: {x: 2500, y: 3500}
   cards:
-  - name: Test 0
+  - name: Food shortage
     index: 1
     count: 1
-    description: Test Description 0
+    description: 'Commit resources: player count x 2 or more. Last player to commit
+      gets 2x[1] personel.'
     lore: 
-    penalty: 
-  - name: Test 1
+    penalty: Each player eats 1 dice, starting with the lowest value ones. Life is
+      life and life is high in protein.
+  - name: Low moral
     index: 2
     count: 1
-    description: Test Description 1
+    description: Everyone can use sabotague. Can't discard cards. Build something
+      to end low morale.
     lore: 
-    penalty: 
+    penalty: Loose one construction.
   - name: Test 2
     index: 3
     count: 1

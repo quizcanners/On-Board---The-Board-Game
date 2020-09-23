@@ -45,14 +45,14 @@ MonoBehaviour:
     description: 
     lore: 
     resourcesNeeded: 2
-    diceType: 0
+    diceType: 6
   - name: Augmentation room
     index: 3
     count: 1
     description: 
     lore: 
     resourcesNeeded: 3
-    diceType: 0
+    diceType: 6
   - name: Security
     index: 4
     count: 2
@@ -66,4 +66,4 @@ MonoBehaviour:
     description: 
     lore: 
     resourcesNeeded: 1
-    diceType: 0
+    diceType: 3

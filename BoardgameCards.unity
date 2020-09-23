@@ -675,11 +675,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   screenGrabber:
-    folderName: Deck Renders/Resources Deck
+    folderName: Deck Renders/Trust Deck
     cameraToTakeScreenShotFrom: {fileID: 621562077}
     UpScale: 1
     AlphaBackground: 1
-    screenShotName: Test 4
+    screenShotName: BIble
   assets: {fileID: 11400000, guid: 94e439d15944ec74f8fad408c78fb4b0, type: 2}
   decks:
   - {fileID: 11400000, guid: 7e628a66125f3ab4c81a71444d2eb283, type: 2}

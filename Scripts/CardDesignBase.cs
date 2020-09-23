@@ -5,6 +5,7 @@ using PlayerAndEditorGUI;
 using QuizCannersUtilities;
 using TMPro;
 using UnityEngine;
+using UnityEngine.UI;
 
 namespace DeckRenderer
 {
@@ -36,6 +37,12 @@ namespace DeckRenderer
         {
             if (element)
                 element.text = text;
+        }
+
+        protected void TrySet(Image element, Sprite sprite)
+        {
+            if (element)
+                element.sprite = sprite;
         }
 
         protected void TrySetEnable(Component cmp, bool value)

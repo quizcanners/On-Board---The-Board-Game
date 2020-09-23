@@ -21,7 +21,7 @@ namespace DeckRenderer
     {
 
         [Header("Abilities")]
-        public bool useTools;
+        public bool physical;
         public bool infection;
         public bool misfortune;
         public bool ocult;
@@ -32,7 +32,7 @@ namespace DeckRenderer
         {
             switch (key)
             {
-                case "Use Tools": useTools = token.ToBool("Yes"); break;
+                case "Use Tools": physical = token.ToBool("Yes"); break;
                 case "Infection": infection = token.ToBool("Yes"); break;
                 case "Misfortune": misfortune = token.ToBool("Yes"); break;
                 case "Ocult": ocult = token.ToBool("Yes"); break;

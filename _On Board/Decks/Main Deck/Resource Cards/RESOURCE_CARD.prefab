@@ -274,8 +274,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 14.994995, y: -41.800003}
-  m_SizeDelta: {x: -30.010315, y: -83.42807}
+  m_AnchoredPosition: {x: 28.149, y: -41.800003}
+  m_SizeDelta: {x: -56.317505, y: -83.42807}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &5486289757691360282
 CanvasRenderer:
@@ -307,8 +307,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: A hammer was administered to a melon of one personel member.
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 5a56871d1d2cc8e46bf3fb03f18d434e, type: 2}
+  m_sharedMaterial: {fileID: -3013436074046839927, guid: 5a56871d1d2cc8e46bf3fb03f18d434e, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -697,8 +697,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 1}
   m_AnchorMax: {x: 0.5, y: 1}
-  m_AnchoredPosition: {x: -310.00833, y: -73.582825}
-  m_SizeDelta: {x: 572.7877, y: 166.25073}
+  m_AnchoredPosition: {x: -439.7, y: -62.6}
+  m_SizeDelta: {x: 740.44666, y: 143.57724}
   m_Pivot: {x: 0, y: 0.5}
 --- !u!222 &5486289757799240552
 CanvasRenderer:
@@ -730,8 +730,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: Hammer
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2100000, guid: 0b0d8a0484abbd048b04cdca61bc1c38, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 4e1af9772860362468a6136f366f2b8d, type: 2}
+  m_sharedMaterial: {fileID: 951691150024117921, guid: 4e1af9772860362468a6136f366f2b8d, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -762,7 +762,7 @@ MonoBehaviour:
   m_fontSizeMin: 18
   m_fontSizeMax: 72
   m_fontStyle: 1
-  m_HorizontalAlignment: 4
+  m_HorizontalAlignment: 2
   m_VerticalAlignment: 512
   m_textAlignment: 65535
   m_characterSpacing: 2.5
@@ -1085,8 +1085,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: Resource
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 4e1af9772860362468a6136f366f2b8d, type: 2}
+  m_sharedMaterial: {fileID: 951691150024117921, guid: 4e1af9772860362468a6136f366f2b8d, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -1675,8 +1675,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 153.6, y: -69.09999}
-  m_SizeDelta: {x: -461.1375, y: -111.90906}
+  m_AnchoredPosition: {x: 114.4, y: -65}
+  m_SizeDelta: {x: -401.71344, y: -76.87131}
   m_Pivot: {x: 0, y: 0.5}
 --- !u!222 &5486289758693736571
 CanvasRenderer:
@@ -1708,8 +1708,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: This is some description of the card. Absolutely irrelevant.
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 025dcb3a1db95ff4696a365b157d5fa6, type: 2}
+  m_sharedMaterial: {fileID: 1442988799577735794, guid: 025dcb3a1db95ff4696a365b157d5fa6, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -2296,15 +2296,15 @@ MonoBehaviour:
       m_Calls: []
   m_text: Physical
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 001e48707a26dee459b63f099800b6e5, type: 2}
+  m_sharedMaterial: {fileID: -3495926243711984564, guid: 001e48707a26dee459b63f099800b6e5, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4278190080
-  m_fontColor: {r: 0, g: 0, b: 0, a: 1}
+    rgba: 4294967295
+  m_fontColor: {r: 1, g: 1, b: 1, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -2500,7 +2500,7 @@ MonoBehaviour:
   Lore: {fileID: 0}
   SabotagueTypeRequirement: {fileID: 5486289759368943312}
   SabotagueResult: {fileID: 0}
-  SabotagueDescription: {fileID: 0}
+  SabotagueDescription: {fileID: 5486289757691360281}
 --- !u!222 &5486289759495475017
 CanvasRenderer:
   m_ObjectHideFlags: 0

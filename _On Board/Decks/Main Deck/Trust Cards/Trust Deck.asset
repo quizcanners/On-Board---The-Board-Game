@@ -21,11 +21,82 @@ MonoBehaviour:
       pageIndex: 1436967239
     _selectedPage: 0
     columns: []
+  cardResolution: {x: 2500, y: 3500}
   cards:
   - name: Trust
     index: 1
     count: 1
     description: 
     lore: 
-    type: 
     sabotague: 
+    sabotagueType: 
+  - name: Trust
+    index: 1
+    count: 1
+    description: 
+    lore: 
+    sabotague: 
+    sabotagueType: 
+  - name: Trust
+    index: 1
+    count: 1
+    description: 
+    lore: 
+    sabotague: 
+    sabotagueType: 
+  - name: Trust
+    index: 1
+    count: 1
+    description: 
+    lore: 
+    sabotague: 
+    sabotagueType: 
+  - name: Trust
+    index: 1
+    count: 1
+    description: 
+    lore: 
+    sabotague: 
+    sabotagueType: 
+  - name: Trust
+    index: 1
+    count: 1
+    description: 
+    lore: 
+    sabotague: 
+    sabotagueType: 
+  - name: Trust
+    index: 1
+    count: 1
+    description: 
+    lore: 
+    sabotague: 
+    sabotagueType: 
+  - name: Trust
+    index: 1
+    count: 1
+    description: 
+    lore: 
+    sabotague: 
+    sabotagueType: 
+  - name: Trust
+    index: 1
+    count: 1
+    description: 
+    lore: 
+    sabotague: 
+    sabotagueType: 
+  - name: Trust
+    index: 1
+    count: 1
+    description: 
+    lore: 
+    sabotague: 
+    sabotagueType: 
+  - name: Trust
+    index: 1
+    count: 1
+    description: 
+    lore: 
+    sabotague: 
+    sabotagueType: 

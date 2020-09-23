@@ -4,35 +4,36 @@ using System.Collections.Generic;
 using PlayerAndEditorGUI;
 using TMPro;
 using UnityEngine;
+using UnityEngine.UI;
 
 namespace DeckRenderer.OnBoard
 {
-    public class DoomsCardDesign : CardDesignBase
+    public class DoomsCardDesign : CardDesignGeneric<DoomsPrototype>
     {
-        public RectTransform manualDamage;
-        public RectTransform infectionDamage;
-        public RectTransform misfortuneDamage;
-        public RectTransform ocultDamage;
-        public RectTransform madnessDamage;
-
-
-        public override void Fill()
+        public Image manualDamage;
+        public Image infectionDamage;
+        public Image misfortuneDamage;
+        public Image ocultDamage;
+        public Image madnessDamage;
+        
+        public override void Fill(DoomsPrototype prot)
         {
-            base.Fill();
 
-            var doomProt = activePrototype as DoomsPrototype;
+            TrySetEnable(manualDamage, prot.physical);
+            TrySet(manualDamage, ImpostorPower.Physical.GetSprite());
 
-            if (doomProt != null)
-            {
-                TrySetEnable(madnessDamage, doomProt.madness);
-                TrySetEnable(infectionDamage, doomProt.infection);
-                TrySetEnable(misfortuneDamage, doomProt.misfortune);
-                TrySetEnable(ocultDamage, doomProt.ocult);
-                TrySetEnable(madnessDamage, doomProt.madness);
-            }
+            TrySetEnable(madnessDamage, prot.madness);
+            TrySet(madnessDamage, ImpostorPower.Madness.GetSprite());
+            
+            TrySetEnable(infectionDamage, prot.infection);
+            TrySet(infectionDamage, ImpostorPower.Infection.GetSprite());
+
+            TrySetEnable(misfortuneDamage, prot.misfortune);
+            TrySet(misfortuneDamage, ImpostorPower.Misfortune.GetSprite());
+
+            TrySetEnable(ocultDamage, prot.ocult);
+            TrySet(ocultDamage, ImpostorPower.Ocult.GetSprite());
+
         }
-
-
-
     }
 }

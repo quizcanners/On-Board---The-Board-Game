@@ -33,6 +33,7 @@ MonoBehaviour:
     - Madness
     - Special
   cardResolution: {x: 2500, y: 3500}
+  selectedForRendering: 1
   cards:
   - name: Regret
     index: 1
@@ -45,3 +46,35 @@ MonoBehaviour:
     misfortune: 1
     ocult: 0
     madness: 0
+  - name: The Vast
+    index: 2
+    count: 1
+    description: All of the stars have disappeared. Sensors and eyes catch nothing
+      but an infinite darkness.
+    lore: 
+    physical: 0
+    infection: 0
+    misfortune: 1
+    ocult: 0
+    madness: 1
+  - name: Skin suits
+    index: 3
+    count: 1
+    description: Not everyone is who they appear to be.
+    lore: 
+    physical: 0
+    infection: 1
+    misfortune: 0
+    ocult: 0
+    madness: 0
+  - name: Dark matter shift
+    index: 4
+    count: 1
+    description: While performing another jump, an error shifted the ship into a
+      different plane. Something new is now on the ship.
+    lore: 
+    physical: 0
+    infection: 0
+    misfortune: 0
+    ocult: 1
+    madness: 1

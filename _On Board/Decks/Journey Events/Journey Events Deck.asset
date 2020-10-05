@@ -26,6 +26,7 @@ MonoBehaviour:
     - Description
     - Penalty
   cardResolution: {x: 2500, y: 3500}
+  selectedForRendering: 1
   cards:
   - name: Food shortage
     index: 1
@@ -42,10 +43,10 @@ MonoBehaviour:
       to end low morale.
     lore: 
     penalty: Loose one construction.
-  - name: Test 2
+  - name: Broken anthena
     index: 3
     count: 1
-    description: Test Description 2
+    description: Reroll 6 engineers total.
     lore: 
     penalty: 
   - name: Test 3

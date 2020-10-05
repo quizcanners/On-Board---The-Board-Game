@@ -25,43 +25,63 @@ MonoBehaviour:
     - Name
     - Description
     - Sabotague
+    - Sabotague Type
     - Lore
     - Count
   cardResolution: {x: 2500, y: 3500}
+  selectedForRendering: 1
   cards:
-  - name: Reconfigure software
+  - name: Safety Procedured
     index: 1
     count: 1
-    description: Test Description 0
+    description: Safety first
     lore: 
-    sabotague: Put this into Journey destination deck. Next discovery action will
-      be wasted to discard this.
-    sabotagueType: 
-  - name: Check oxygen pressure
+    sabotague: Motion sensors were miscalibrated and closed on one personel. (fatal)
+    sabotagueType: Misfortune
+  - name: Vaccine
     index: 2
     count: 1
-    description: Test Description 1
+    description: Lets stay healthy
     lore: 
-    sabotague: 
-    sabotagueType: 
-  - name: Test 2
+    sabotague: Vaccine contained mind-altering fungus. Each security personal shot
+      one personel(of the same player) in panic.
+    sabotagueType: Infection
+  - name: Aluminum composite
     index: 3
     count: 1
-    description: Test Description 2
+    description: Lets replace all the damaged walls.
     lore: 
-    sabotague: 
-    sabotagueType: 
-  - name: Test 3
+    sabotague: A small crack in the wall suddenly expanded due to pressure taking
+      out 1-3 personel.
+    sabotagueType: Misfortune
+  - name: Spiritual service
     index: 4
     count: 1
-    description: Test Description 3
+    description: Sometimes it is good to believe in something bigger.
     lore: 
-    sabotague: 
-    sabotagueType: 
-  - name: Test 4
+    sabotague: Some refuse to turn the lights out when they go to sleep because of
+      the voices. 1-6 personel is lost to self-mutalation.
+    sabotagueType: Ocult
+  - name: Movies
     index: 5
     count: 1
-    description: Test Description 4
+    description: Some nostalgia back from earth.
     lore: 
-    sabotague: 
-    sabotagueType: 
+    sabotague: Some of the movies were propaganda. Unoccupied and incapacitated personel
+      started a cult.
+    sabotagueType: Madness
+  - name: Food rations
+    index: 6
+    count: 1
+    description: Nothing rises a spirat like a well made sandwich,
+    lore: 
+    sabotague: Crew got sick with something. 1-3 personel have died.
+    sabotagueType: Infection
+  - name: Hygiene supplies
+    index: 7
+    count: 1
+    description: Helthy body healthy mind.
+    lore: 
+    sabotague: Somebody placed acid in the shampoo. 1-6 unoccupied and incapacitated
+      personel lost.
+    sabotagueType: Physical

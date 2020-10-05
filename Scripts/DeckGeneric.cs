@@ -20,8 +20,10 @@ namespace DeckRenderer
 
         public Vector2 cardResolution = new Vector2(2500, 3500);
 
+        public bool selectedForRendering;
+        
 
-        protected abstract IEnumerator Download();
+        public abstract IEnumerator Download();
 
         public abstract IEnumerator<CardPrototypeBase> GetEnumerator();
 
@@ -32,6 +34,8 @@ namespace DeckRenderer
         
         public bool InspectInList(IList list, int ind, ref int edited)
         {
+            pegi.toggle(ref selectedForRendering);
+
             name.write();
 
             if (parcerForCards.IsDownloading() == false)
@@ -60,7 +64,7 @@ namespace DeckRenderer
 
         public override IEnumerator<CardPrototypeBase> GetEnumerator() => cards.GetEnumerator();
 
-        protected override IEnumerator Download()
+        public override IEnumerator Download()
         {
             parcerForCards.StartDownload();
 

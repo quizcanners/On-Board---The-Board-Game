@@ -26,6 +26,7 @@ MonoBehaviour:
     - Lore
     - IsSafe
   cardResolution: {x: 2500, y: 3500}
+  selectedForRendering: 1
   cards:
   - name: New Eden
     index: 1
@@ -49,15 +50,22 @@ MonoBehaviour:
       you are managed to escape, the universe around you have entered a Big Rip state.
       All stars burned out and place is cold now. There is no hope.
     isSafeToLand: 0
-  - name: Test 3
+  - name: Ice ball
     index: 4
     count: 1
     description: 
-    lore: Test Description 3
+    lore: Nothing but planes of frozen water... something big moves deep below the
+      ice.
     isSafeToLand: 0
-  - name: Test 4
+  - name: Volcanic
     index: 5
     count: 1
     description: 
-    lore: Test Description 4
+    lore: This place is long way from being inhabitable.
+    isSafeToLand: 0
+  - name: Toxic rain
+    index: 6
+    count: 1
+    description: 
+    lore: Can be inhabitable with the right tech.
     isSafeToLand: 0

@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using PlayerAndEditorGUI;
 using QuizCannersUtilities;
 using UnityEngine;
@@ -9,9 +10,9 @@ using DeckRenderer.OnBoard;
 #if UNITY_EDITOR
 using UnityEditor;
 #endif
+
 namespace DeckRenderer
 {
-
     [ExecuteAlways]
     public class CardsRenderer : MonoBehaviour, IPEGI
     {
@@ -37,13 +38,22 @@ namespace DeckRenderer
             instance = this;
         }
 
-        private bool _coroInProgress;
+        private DeckBase _renderingDeck;
 
-        public bool IsRendering => _coroInProgress;
+        public bool IsRendering => _renderingDeck != null;
 
         public void RenderAllTheCards(DeckBase deck)
         {
             StartCoroutine(RenderAllTheCardsCoro(deck));
+        }
+
+        public IEnumerator RenderSelectedDecks()
+        {
+            foreach (var deck in decks)
+            {
+                if (deck.selectedForRendering)
+                    yield return RenderAllTheCardsCoro(deck);
+            }
         }
 
         public void ShowCard(DeckBase deck, CardPrototypeBase card = null)
@@ -70,7 +80,7 @@ namespace DeckRenderer
             if (!cardDesignInstance)
                 yield break;
 
-            _coroInProgress = true;
+            _renderingDeck = deck;
 
             screenGrabber.folderName = "Deck Renders/{0}".F(deck.name);
 
@@ -84,7 +94,7 @@ namespace DeckRenderer
                 yield return null;
             }
 
-            _coroInProgress = false;
+            _renderingDeck = null;
 
             yield break;
         }
@@ -92,7 +102,6 @@ namespace DeckRenderer
         #region Inspector
 
         private int _inspectedStuff = -1;
-
         private int _inspectedDeck = -1;
 
         public bool Inspect()
@@ -110,11 +119,11 @@ namespace DeckRenderer
                 _inspectedDeck = -1;
             }
 
-            if (_coroInProgress)
+            if (IsRendering)
             {
-                "Rendering...".write();
+                "Rendering...{0}".F(_renderingDeck).write();
                 if (icon.Close.Click("Cancel"))
-                    _coroInProgress = false;
+                    _renderingDeck = null;
             }
 
             pegi.nl();
@@ -126,17 +135,19 @@ namespace DeckRenderer
 
             "Decks".enter_List_UObj(ref decks,ref _inspectedDeck, ref _inspectedStuff, 1).nl(ref changed);
 
+            if (_inspectedStuff == 1 && !IsRendering && decks.Any(x=> x.selectedForRendering) 
+                && "Render Selected".ClickConfirm(confirmationTag: "rhdDcks", toolTip: "Render all of the selected decks?"))
+                StartCoroutine(RenderSelectedDecks());
+            
+
             return changed;
         }
         #endregion
     }
-
-
+    
 #if UNITY_EDITOR
-
     [CustomEditor(typeof(CardsRenderer))]
     public class CardsRendererDrawer : PEGI_Inspector_Mono<CardsRenderer> { }
-
 #endif
 
 }

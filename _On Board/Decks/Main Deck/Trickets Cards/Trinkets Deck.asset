@@ -26,6 +26,7 @@ MonoBehaviour:
     - Description
     - Lore
   cardResolution: {x: 2500, y: 3500}
+  selectedForRendering: 1
   cards:
   - name: BIble
     index: 1

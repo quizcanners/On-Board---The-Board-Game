@@ -31,6 +31,7 @@ MonoBehaviour:
     - Operators Count
     - Construction cost
   cardResolution: {x: 2500, y: 3500}
+  selectedForRendering: 0
   cards:
   - name: Safety Boat
     index: 1
@@ -67,3 +68,10 @@ MonoBehaviour:
     lore: 
     resourcesNeeded: 1
     diceType: 3
+  - name: Teraformer
+    index: 6
+    count: 1
+    description: 
+    lore: 
+    resourcesNeeded: 1
+    diceType: 6

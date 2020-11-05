@@ -99,6 +99,29 @@ namespace DeckRenderer
             yield break;
         }
 
+        public void RenderCard(DeckBase deck, CardPrototypeBase card)
+        {
+            ShowCard(deck);
+
+            if (!cardDesignInstance)
+            {
+                Debug.LogError("No card");
+                return;
+            }
+
+            _renderingDeck = deck;
+
+            screenGrabber.folderName = "Deck Renders/{0}".F(deck.name);
+
+            Screen.SetResolution((int)deck.cardResolution.x, (int)deck.cardResolution.y, FullScreenMode.MaximizedWindow);
+
+            cardDesignInstance.ActivePrototype = card;
+            screenGrabber.screenShotName = card.NameForPEGI;
+            screenGrabber.RenderToTextureManually();
+
+            _renderingDeck = null;
+        }
+
         #region Inspector
 
         private int _inspectedStuff = -1;

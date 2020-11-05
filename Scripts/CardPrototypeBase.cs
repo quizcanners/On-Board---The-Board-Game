@@ -13,6 +13,9 @@ namespace DeckRenderer
         protected CardsRenderer CardRederer => CardsRenderer.instance;
 
         [SerializeField]
+        protected bool selectedForRender;
+
+        [SerializeField]
         protected string name;
         [SerializeField]
         protected int index;
@@ -20,8 +23,6 @@ namespace DeckRenderer
         public int count = 1;
         [SerializeField]
         public string description;
-        [SerializeField]
-        public string lore;
 
         public string NameForPEGI
         {
@@ -56,7 +57,6 @@ namespace DeckRenderer
                 case "Name": NameForPEGI = token.ToString(); break;
                 case "Count": count = token.ToInt(1); break;
                 case "Description": description = token.ToString(); break;
-                case "Lore": lore = token.ToString(); break;
             }
         }
 
@@ -66,9 +66,8 @@ namespace DeckRenderer
 
         protected void FillInspect()
         {
-            if (ResourcesDeck.inspected.cardDesignPrefab && icon.Play.Click())
-                CardRederer.ShowCard(ResourcesDeck.inspected, this);
-               // Rederer.cardDesign.ActivePrototype = this;
+            if (DeckBase.inspected.cardDesignPrefab && icon.Play.Click())
+                CardRederer.ShowCard(DeckBase.inspected, this);
         }
 
         public virtual bool Inspect()
@@ -81,7 +80,6 @@ namespace DeckRenderer
 
             "Description".editBig(ref description);
 
-            "Lore".editBig(ref lore);
 
             return changed;
         }
@@ -89,6 +87,8 @@ namespace DeckRenderer
         public virtual bool InspectInList(IList list, int ind, ref int edited)
         {
             var changed = false;
+
+            pegi.toggle(ref selectedForRender);
 
             IndexForPEGI.ToString().write(35);
 

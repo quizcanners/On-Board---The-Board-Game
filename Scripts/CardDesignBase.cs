@@ -1,6 +1,4 @@
 ﻿using System;
-using System.Collections;
-using System.Collections.Generic;
 using PlayerAndEditorGUI;
 using QuizCannersUtilities;
 using TMPro;
@@ -11,10 +9,9 @@ namespace DeckRenderer
 {
     public class CardDesignBase : MonoBehaviour, IPEGI
     {
-        public TextMeshProUGUI Type;
+   
         public TextMeshProUGUI Name;
         public TextMeshProUGUI Description;
-        public TextMeshProUGUI Lore;
 
         protected CardsRenderer DeckRederer => CardsRenderer.instance;
         
@@ -45,10 +42,16 @@ namespace DeckRenderer
                 element.sprite = sprite;
         }
 
-        protected void TrySetEnable(Component cmp, bool value)
+        protected void TrySetActive(Component cmp, bool value)
         {
             if (cmp)
                 cmp.gameObject.SetActive(value);
+        }
+
+        protected void TrySetEnabled(Graphic cmp, bool value)
+        {
+            if (cmp)
+                cmp.enabled = value;
         }
 
         public virtual void Fill()
@@ -57,19 +60,17 @@ namespace DeckRenderer
             {
                 TrySet(Name, activePrototype.NameForPEGI);
                 TrySet(Description, activePrototype.description);
-                TrySet(Lore, activePrototype.lore);
             }
             else
             {
                 TrySet(Name, "No Prototype");
                 TrySet(Description, "No Prototype");
-                TrySet(Lore, "No Prototype");
             }
         }
 
         #region Inspector
 
-        public bool Inspect()
+        public virtual bool Inspect()
         {
             var changed = false;
 
@@ -103,6 +104,8 @@ namespace DeckRenderer
             else 
                 Debug.LogError("Couldn't convert {0} to {1}".F(prot, typeof(T).ToString()));
         }
+
+
     }
 
 }

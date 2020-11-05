@@ -19,19 +19,19 @@ namespace DeckRenderer.OnBoard
         public override void Fill(DoomsPrototype prot)
         {
 
-            TrySetEnable(manualDamage, prot.physical);
+            TrySetActive(manualDamage, prot.physical);
             TrySet(manualDamage, ImpostorPower.Physical.GetSprite());
 
-            TrySetEnable(madnessDamage, prot.madness);
+            TrySetActive(madnessDamage, prot.madness);
             TrySet(madnessDamage, ImpostorPower.Madness.GetSprite());
             
-            TrySetEnable(infectionDamage, prot.infection);
+            TrySetActive(infectionDamage, prot.infection);
             TrySet(infectionDamage, ImpostorPower.Infection.GetSprite());
 
-            TrySetEnable(misfortuneDamage, prot.misfortune);
+            TrySetActive(misfortuneDamage, prot.misfortune);
             TrySet(misfortuneDamage, ImpostorPower.Misfortune.GetSprite());
 
-            TrySetEnable(ocultDamage, prot.ocult);
+            TrySetActive(ocultDamage, prot.ocult);
             TrySet(ocultDamage, ImpostorPower.Ocult.GetSprite());
 
         }

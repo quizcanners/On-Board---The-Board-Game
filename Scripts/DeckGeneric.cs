@@ -103,6 +103,8 @@ namespace DeckRenderer
                 {
                     "Updating...".write(toolTip: "Downloading...");
                 }
+
+                
             }
 
             pegi.nl();
@@ -112,7 +114,26 @@ namespace DeckRenderer
             "Cards".enter_List(ref cards, ref _inspectedCard, ref _inspectedStuff, 1).nl();
 
             if (_inspectedStuff == -1 || !cardDesignPrefab)
-                "Card Design".edit(90, ref cardDesignPrefab).nl();
+            {
+                "Card Design".edit(90, ref cardDesignPrefab);
+                var rnd = CardsRenderer.instance;
+
+                if (rnd)
+                {
+                    if (rnd.cardDesignInstance)
+                    {
+                        if ("Destroy Instance".Click())
+                            rnd.cardDesignInstance.gameObject.DestroyWhatever();
+                    }
+                    else
+                    {
+                        if ("Instantiate Prefab".Click())
+                            rnd.ShowCard(this);
+                    }
+                }
+
+                pegi.nl();
+            }
 
             if (_inspectedStuff == -1)
             {

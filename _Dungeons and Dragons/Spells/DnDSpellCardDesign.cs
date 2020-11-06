@@ -19,8 +19,8 @@ namespace DeckRenderer.DnD
         public Graphic verbal, somatic, material;
         public TextMeshProUGUI component;
         public TextMeshProUGUI duration;
-        public Graphic concentration;
-        public Graphic ritual;
+        public RectTransform concentration;
+        public RectTransform ritual;
 
         public RectTransform spellScalingContent;
         public TextMeshProUGUI spellScaling;

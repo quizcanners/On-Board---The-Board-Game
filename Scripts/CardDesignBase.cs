@@ -48,6 +48,12 @@ namespace DeckRenderer
                 cmp.gameObject.SetActive(value);
         }
 
+        protected void TrySetActive(GameObject go, bool value)
+        {
+            if (go)
+                go.SetActive(value);
+        }
+
         protected void TrySetEnabled(Graphic cmp, bool value)
         {
             if (cmp)

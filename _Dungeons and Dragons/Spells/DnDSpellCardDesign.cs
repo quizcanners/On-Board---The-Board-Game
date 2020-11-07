@@ -7,9 +7,12 @@ using UnityEngine;
 using UnityEngine.UI;
 
 using UnityEditor;
+using System.Collections;
+using UnityEngine.Networking;
 
 namespace DeckRenderer.DnD
 {
+    [ExecuteAlways]
     public class DnDSpellCardDesign : CardDesignGeneric<DnDSpellPrototype>
     {
 
@@ -22,108 +25,123 @@ namespace DeckRenderer.DnD
         public RectTransform concentration;
         public RectTransform ritual;
 
-        public RectTransform spellScalingContent;
-        public TextMeshProUGUI spellScaling;
+
 
         public RectTransform damageContent;
         public TextMeshProUGUI damageInfo;
 
+        public RectTransform spellScalingContent;
+        public TextMeshProUGUI spellScaling;
+
+        public GameObject artContent;
+        public Material artMaterial;
+
         public List<RectTransform> subclassContent;
         public TextMeshProUGUI subclass;
 
+
         public Image Bard, Cleric, Druid, Paladin, Ranger, Sorceror, Warlock, Wizard;
 
-        public override void Fill(DnDSpellPrototype prot)
+        public override void Fill(DnDSpellPrototype spell)
         {
-            if (prot != null)
+            if (spell != null)
             {
-                TrySet(castingTime, prot.castingTime);
-                TrySet(range, prot.range);
+                StopAllCoroutines();
 
-                TrySetEnabled(verbal, prot.verbal);
-                TrySetEnabled(somatic, prot.somatic);
-                TrySetEnabled(material, prot.material);
-                TrySet(component, prot.components + prot.Cost);
+                TrySet(castingTime, spell.castingTime);
+                TrySet(range, spell.range);
 
-                TrySet(duration, prot.duration);
+                TrySetEnabled(verbal, spell.verbal);
+                TrySetEnabled(somatic, spell.somatic);
+                TrySetEnabled(material, spell.material);
+                TrySet(component, spell.components + spell.Cost);
 
-                TrySetActive(concentration, prot.concentration);
-                TrySetActive(ritual, prot.ritual);
+                TrySet(duration, spell.duration);
 
-                TrySet(Name, prot.NameForPEGI);
+                TrySetActive(concentration, spell.concentration);
+                TrySetActive(ritual, spell.ritual);
+
+                TrySet(Name, spell.NameForPEGI);
 
                 StringBuilder lvl = new StringBuilder(64);
 
-                if (prot.level == 0)
+                if (spell.level == 0)
                 {
-                    lvl.Append(prot.school.ToString()).Append(" Cantrip");
+                    lvl.Append(spell.school.ToString()).Append(" Cantrip");
                 } else
                 {
-                    switch (prot.level)
+                    switch (spell.level)
                     {
                         case 1: lvl.Append("1st"); break;
                         case 2: lvl.Append("2nd"); break;
                         case 3: lvl.Append("3rd"); break;
-                        default: lvl.Append(prot.level.ToString()+"th"); break;
+                        default: lvl.Append(spell.level.ToString()+"th"); break;
                     }
 
-                    lvl.Append("-level ").Append(prot.school.ToString());
+                    lvl.Append("-level ").Append(spell.school.ToString());
                 }
 
                 TrySet(school, lvl.ToString());
                 
-                TrySet(Description, prot.description);
+                TrySet(Description, spell.description);
 
-                bool showRollsInfo = !prot.attackRoll.IsNullOrEmpty() || !prot.savingThrow.IsNullOrEmpty() || prot.damageType != DamageType.None;
+                bool showRollsInfo = !spell.attackRoll.IsNullOrEmpty() || !spell.savingThrow.IsNullOrEmpty() || spell.damageType != DamageType.None;
 
                 TrySetActive(damageContent, showRollsInfo);
 
                 if (showRollsInfo) {
                     StringBuilder diceInfo = new StringBuilder(128);
 
-                    diceInfo.Append(prot.savingThrow);
-                    if (!prot.savingEffect.IsNullOrEmpty())
+                    diceInfo.Append(spell.savingThrow);
+                    if (!spell.savingEffect.IsNullOrEmpty())
                     {
-                        diceInfo.Append(" ({0}) ".F(prot.savingEffect));
+                        diceInfo.Append(" ({0}) ".F(spell.savingEffect));
                     }
 
-                    diceInfo.Append(prot.attackRoll);
+                    diceInfo.Append(spell.attackRoll);
 
-                    if (prot.damageType != DamageType.None)
+                    if (spell.damageType != DamageType.None)
                     {
-                        if (prot.savingThrow.IsNullOrEmpty() == false)
+                        if (spell.savingThrow.IsNullOrEmpty() == false)
                             diceInfo.Append(" | ");
 
-                        if (prot.damageType == DamageType.Custom)
+                        if (spell.damageType == DamageType.Custom)
                         {
-                            diceInfo.Append(prot.customDamageType);
+                            diceInfo.Append(spell.customDamageType);
                         }
                         else
                         {
                             //TrySet(damageIcon, );
-                            diceInfo.Append("<sprite name=\"{0}\">".F(prot.damageType.ToString()));
+                            diceInfo.Append("<sprite name=\"{0}\">".F(spell.damageType.ToString()));
                         }
-                        diceInfo.Append(" ").Append(prot.dice).Append(" ");
+                        diceInfo.Append(" ").Append(spell.dice).Append(" ");
                     }
                     TrySet(damageInfo, diceInfo.ToString());
                  }
                  
-                TrySetActive(spellScalingContent, prot.perHigherSpellLevel.IsNullOrEmpty() == false);
-                TrySet(spellScaling, prot.perHigherSpellLevel);
+                TrySetActive(spellScalingContent, spell.perHigherSpellLevel.IsNullOrEmpty() == false);
+                TrySet(spellScaling, spell.perHigherSpellLevel);
 
-                string specialClass = prot.GetSpecialClass();
+
+                TrySetActive(artContent, !spell.art.IsNullOrEmpty());
+                if (spell.art.IsNullOrEmpty() == false)
+                {
+                    StartCoroutine(SetTexture(spell.art));
+                }
+
+                string specialClass = spell.GetSpecialClass();
 
                 subclassContent.SetActive_List(specialClass.IsNullOrEmpty() == false);
                 TrySet(subclass, specialClass);
 
-                TrySetEnabled(Bard, !prot.Bard.IsNullOrEmpty());
-                TrySetEnabled(Cleric, !prot.Cleric.IsNullOrEmpty());
-                TrySetEnabled(Druid, !prot.Druid.IsNullOrEmpty());
-                TrySetEnabled(Paladin, !prot.Paladin.IsNullOrEmpty());
-                TrySetEnabled(Ranger, !prot.Ranger.IsNullOrEmpty());
-                TrySetEnabled(Sorceror, !prot.Sorceror.IsNullOrEmpty());
-                TrySetEnabled(Warlock, !prot.Warlock.IsNullOrEmpty());
-                TrySetEnabled(Wizard, !prot.Wizard.IsNullOrEmpty());
+                TrySetEnabled(Bard, !spell.Bard.IsNullOrEmpty());
+                TrySetEnabled(Cleric, !spell.Cleric.IsNullOrEmpty());
+                TrySetEnabled(Druid, !spell.Druid.IsNullOrEmpty());
+                TrySetEnabled(Paladin, !spell.Paladin.IsNullOrEmpty());
+                TrySetEnabled(Ranger, !spell.Ranger.IsNullOrEmpty());
+                TrySetEnabled(Sorceror, !spell.Sorceror.IsNullOrEmpty());
+                TrySetEnabled(Warlock, !spell.Warlock.IsNullOrEmpty());
+                TrySetEnabled(Wizard, !spell.Wizard.IsNullOrEmpty());
 
             }
             else
@@ -131,6 +149,39 @@ namespace DeckRenderer.DnD
                 TrySet(Name, "No Prototype");
                 TrySet(Description, "No Prototype");
             }
+        }
+
+        public IEnumerator SetTexture(string address)
+        {
+            Debug.Log("Downloading {0}".F(address));
+
+            UnityWebRequest www = UnityWebRequestTexture.GetTexture(address);
+            yield return www.SendWebRequest();
+
+            if (www.isNetworkError || www.isHttpError)
+            {
+                Debug.Log(www.error);
+            }
+            else
+            {
+                Texture2D wwwTex = DownloadHandlerTexture.GetContent(www);
+
+                var loadedTexture = new Texture2D(wwwTex.width, wwwTex.height, wwwTex.format, true);
+
+                loadedTexture.LoadImage(www.downloadHandler.data);
+
+                if (wwwTex)
+                {
+                    artMaterial.SetTexture("_FillTex", wwwTex);
+                }
+                else
+                {
+                    artContent.SetActive(false);
+                }
+            }
+
+            yield break;
+
         }
 
         public override bool Inspect()

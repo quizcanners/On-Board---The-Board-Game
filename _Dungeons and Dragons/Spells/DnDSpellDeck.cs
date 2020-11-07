@@ -58,6 +58,7 @@ namespace DeckRenderer.DnD
         public SourceBook sourceBook;
         public int page;
         public string perHigherSpellLevel;
+        public string art;
 
         public string Bard, Cleric, Druid, Paladin, Ranger, Sorceror, Warlock, Wizard;
 
@@ -145,6 +146,7 @@ namespace DeckRenderer.DnD
                     }
                     break;
                 case "Damage/Heal": dice = token.ToString(); break;
+                case "Art": art = token.ToString(); break;
                 case "Sourcebook": sourceBook = SourceBook.PHB; break;   
                 case "Page #": page = token.ToInt(); break;
                 case "Per Higher Spell Level": perHigherSpellLevel = token.ToString(); break;

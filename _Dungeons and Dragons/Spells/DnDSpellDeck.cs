@@ -49,7 +49,9 @@ namespace DeckRenderer.DnD
         public string Cost;
         public bool concentration;
         public string duration;
-        public string AttackSaving;
+        public string savingThrow;
+        public string savingEffect;
+        public string attackRoll;
         public DamageType damageType;
         public string customDamageType;
         public string dice;
@@ -58,6 +60,38 @@ namespace DeckRenderer.DnD
         public string perHigherSpellLevel;
 
         public string Bard, Cleric, Druid, Paladin, Ranger, Sorceror, Warlock, Wizard;
+
+        private void IsSpecialClass(string existing, string target, ref string result)
+        {
+            if (existing.IsNullOrEmpty())
+            {
+                return;
+            }
+
+            if (!existing.Equals(target))
+            {
+                if (result.IsNullOrEmpty())
+                    result = existing;
+                else
+                    result += " " + existing;
+            }
+        }
+
+        public string GetSpecialClass()
+        {
+            string result = "";
+
+            IsSpecialClass(Bard,        "Bard",     ref result);
+            IsSpecialClass(Cleric,      "Cleric",   ref result); 
+            IsSpecialClass(Druid,       "Druid",    ref result); 
+            IsSpecialClass(Paladin,     "Paladin",  ref result); 
+            IsSpecialClass(Ranger,      "Ranger",   ref result); 
+            IsSpecialClass(Sorceror,    "Sorceror", ref result); 
+            IsSpecialClass(Warlock,     "Warlock",  ref result); 
+            IsSpecialClass(Wizard,      "Wizard",   ref result); 
+
+            return result;
+        }
 
         public bool String_SearchMatch(string searchString)
         {
@@ -95,7 +129,9 @@ namespace DeckRenderer.DnD
                 case "Cost": Cost = token.ToString(); break;
                 case "Concentration": concentration = token.ToBool("Concentration"); break;
                 case "Duration": duration = token.ToString(); break;
-                case "Attack/Saving Throw (Effect)": AttackSaving = token.ToString(); break;
+                case "Saving Throw": savingThrow = token.ToString(); break;
+                case "Save Effect": savingEffect = token.ToString(); break;
+                case "Attack": attackRoll = token.ToString(); break;
                 case "Damage Type":
                     string txt = token.ToString();
                     if (txt.IsNullOrEmpty())

@@ -1,12 +1,12 @@
-﻿using System;
-using System.Collections;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Text;
 using PlayerAndEditorGUI;
 using QuizCannersUtilities;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
+
+using UnityEditor;
 
 namespace DeckRenderer.DnD
 {
@@ -25,9 +25,11 @@ namespace DeckRenderer.DnD
         public RectTransform spellScalingContent;
         public TextMeshProUGUI spellScaling;
 
+        public RectTransform damageContent;
         public TextMeshProUGUI damageInfo;
 
-        public TextMeshProUGUI level;
+        public List<RectTransform> subclassContent;
+        public TextMeshProUGUI subclass;
 
         public Image Bard, Cleric, Druid, Paladin, Ranger, Sorceror, Warlock, Wizard;
 
@@ -48,23 +50,48 @@ namespace DeckRenderer.DnD
                 TrySetActive(concentration, prot.concentration);
                 TrySetActive(ritual, prot.ritual);
 
-              
                 TrySet(Name, prot.NameForPEGI);
-                TrySet(school, prot.school.ToString());
+
+                StringBuilder lvl = new StringBuilder(64);
+
+                if (prot.level == 0)
+                {
+                    lvl.Append(prot.school.ToString()).Append(" Cantrip");
+                } else
+                {
+                    switch (prot.level)
+                    {
+                        case 1: lvl.Append("1st"); break;
+                        case 2: lvl.Append("2nd"); break;
+                        case 3: lvl.Append("3rd"); break;
+                        default: lvl.Append(prot.level.ToString()+"th"); break;
+                    }
+
+                    lvl.Append("-level ").Append(prot.school.ToString());
+                }
+
+                TrySet(school, lvl.ToString());
+                
                 TrySet(Description, prot.description);
 
-                bool showRollsInfo = !prot.AttackSaving.IsNullOrEmpty() || prot.damageType != DamageType.None;
+                bool showRollsInfo = !prot.attackRoll.IsNullOrEmpty() || !prot.savingThrow.IsNullOrEmpty() || prot.damageType != DamageType.None;
 
-                TrySetActive(damageInfo, showRollsInfo);
+                TrySetActive(damageContent, showRollsInfo);
 
                 if (showRollsInfo) {
                     StringBuilder diceInfo = new StringBuilder(128);
 
-                    diceInfo.Append(prot.AttackSaving);
+                    diceInfo.Append(prot.savingThrow);
+                    if (!prot.savingEffect.IsNullOrEmpty())
+                    {
+                        diceInfo.Append(" ({0}) ".F(prot.savingEffect));
+                    }
+
+                    diceInfo.Append(prot.attackRoll);
 
                     if (prot.damageType != DamageType.None)
                     {
-                        if (prot.AttackSaving.IsNullOrEmpty() == false)
+                        if (prot.savingThrow.IsNullOrEmpty() == false)
                             diceInfo.Append(" | ");
 
                         if (prot.damageType == DamageType.Custom)
@@ -72,20 +99,22 @@ namespace DeckRenderer.DnD
                             diceInfo.Append(prot.customDamageType);
                         }
                         else
-                            diceInfo.Append(prot.damageType.ToString());
-
+                        {
+                            //TrySet(damageIcon, );
+                            diceInfo.Append("<sprite name=\"{0}\">".F(prot.damageType.ToString()));
+                        }
                         diceInfo.Append(" ").Append(prot.dice).Append(" ");
                     }
-
                     TrySet(damageInfo, diceInfo.ToString());
-
                  }
                  
-                   
                 TrySetActive(spellScalingContent, prot.perHigherSpellLevel.IsNullOrEmpty() == false);
                 TrySet(spellScaling, prot.perHigherSpellLevel);
 
-                TrySet(level, (prot.level > 0 ? "Lvl. " + prot.level.ToString() : "Cantrip"));// +" "+ prot.school.ToString());
+                string specialClass = prot.GetSpecialClass();
+
+                subclassContent.SetActive_List(specialClass.IsNullOrEmpty() == false);
+                TrySet(subclass, specialClass);
 
                 TrySetEnabled(Bard, !prot.Bard.IsNullOrEmpty());
                 TrySetEnabled(Cleric, !prot.Cleric.IsNullOrEmpty());
@@ -104,6 +133,21 @@ namespace DeckRenderer.DnD
             }
         }
 
-     
+        public override bool Inspect()
+        {
+            var changed = pegi.toggleDefaultInspector(this); 
+                
+            base.Inspect().nl(ref changed);
+
+
+
+            return changed;
+        }
+
     }
+
+
+    [CustomEditor(typeof(DnDSpellCardDesign))]
+    public class DnDSpellCardDesignDrawer : PEGI_Inspector_Mono<DnDSpellCardDesign>
+    {    }
 }

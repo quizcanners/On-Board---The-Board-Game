@@ -66,7 +66,7 @@ namespace DeckRenderer
 
         protected void FillInspect()
         {
-            if (DeckBase.inspected.cardDesignPrefab && icon.Play.Click())
+            if (DeckBase.inspected && DeckBase.inspected.cardDesignPrefab && icon.Play.Click())
                 CardRederer.ShowCard(DeckBase.inspected, this);
         }
 

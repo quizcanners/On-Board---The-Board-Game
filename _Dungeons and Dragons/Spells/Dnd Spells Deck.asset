@@ -84,7 +84,7 @@ MonoBehaviour:
     sourceBook: 0
     page: 211
     perHigherSpellLevel: 
-    art: 
+    art: https://newcastlebeach.org/images/acid-splah-1.jpg
     Bard: 
     Cleric: 
     Druid: 
@@ -120,7 +120,7 @@ MonoBehaviour:
     sourceBook: 0
     page: 218
     perHigherSpellLevel: 
-    art: https://assets.dicebreaker.com/dunegeons-and-dragons-essentials-kit-artwork.jpg/BROK/resize/1200x1200%3E/format/jpg/quality/70/dunegeons-and-dragons-essentials-kit-artwork.jpg
+    art: https://qph.fs.quoracdn.net/main-qimg-1e5571757f43b038f5ef4891b60ecbf8
     Bard: Bard
     Cleric: 
     Druid: 
@@ -162,7 +162,7 @@ MonoBehaviour:
     page: 221
     perHigherSpellLevel: This spell's damage increases by 1d8 when you reach 5th
       level (2d8), 11th level (3d8), and 17th level (4d8).
-    art: 
+    art: https://www.gamersdecide.com/sites/default/files/styles/news_images/public/the_10_best_attack_cantrips_in_dd_headline.jpg
     Bard: 
     Cleric: Cleric(Death)
     Druid: 
@@ -235,7 +235,7 @@ MonoBehaviour:
     sourceBook: 0
     page: 236
     perHigherSpellLevel: 
-    art: https://assets.dicebreaker.com/dunegeons-and-dragons-essentials-kit-artwork.jpg/BROK/resize/1200x1200%3E/format/jpg/quality/70/dunegeons-and-dragons-essentials-kit-artwork.jpg
+    art: https://www.belloflostsouls.net/wp-content/uploads/2017/02/kaladesh-druid.jpg
     Bard: 
     Cleric: Cleric(Nature)
     Druid: Druid
@@ -276,7 +276,7 @@ MonoBehaviour:
       levels: two beams at 5th level, three beams at 11th level, and four beams at
       17th level. You can direct the beams at the same target or at different ones.
       Make a separate attack roll for each beam.'
-    art: 
+    art: https://i.pinimg.com/originals/88/aa/9c/88aa9c39a0954c3787e0a2d05ae150e6.png
     Bard: 
     Cleric: 
     Druid: 
@@ -349,7 +349,7 @@ MonoBehaviour:
     sourceBook: 0
     page: 244
     perHigherSpellLevel: 
-    art: https://assets.dicebreaker.com/dunegeons-and-dragons-essentials-kit-artwork.jpg/BROK/resize/1200x1200%3E/format/jpg/quality/70/dunegeons-and-dragons-essentials-kit-artwork.jpg
+    art: 
     Bard: Bard
     Cleric: 
     Druid: 
@@ -385,7 +385,7 @@ MonoBehaviour:
     sourceBook: 0
     page: 248
     perHigherSpellLevel: 
-    art: https://assets.dicebreaker.com/dunegeons-and-dragons-essentials-kit-artwork.jpg/BROK/resize/1200x1200%3E/format/jpg/quality/70/dunegeons-and-dragons-essentials-kit-artwork.jpg
+    art: 
     Bard: 
     Cleric: Cleric
     Druid: Druid
@@ -421,7 +421,7 @@ MonoBehaviour:
     sourceBook: 0
     page: 255
     perHigherSpellLevel: 
-    art: https://assets.dicebreaker.com/dunegeons-and-dragons-essentials-kit-artwork.jpg/BROK/resize/1200x1200%3E/format/jpg/quality/70/dunegeons-and-dragons-essentials-kit-artwork.jpg
+    art: https://i.pinimg.com/originals/ac/95/9c/ac959cd7d23a3570ab54ae9c261dc44b.jpg
     Bard: Bard
     Cleric: Cleric
     Druid: 
@@ -458,7 +458,7 @@ MonoBehaviour:
     sourceBook: 0
     page: 256
     perHigherSpellLevel: 
-    art: https://assets.dicebreaker.com/dunegeons-and-dragons-essentials-kit-artwork.jpg/BROK/resize/1200x1200%3E/format/jpg/quality/70/dunegeons-and-dragons-essentials-kit-artwork.jpg
+    art: https://i1.wp.com/dmdave.com/wp-content/uploads/2018/10/mage-hand.jpg?resize=656%2C300&ssl=1
     Bard: Bard
     Cleric: 
     Druid: 
@@ -494,7 +494,7 @@ MonoBehaviour:
     sourceBook: 0
     page: 259
     perHigherSpellLevel: 
-    art: https://assets.dicebreaker.com/dunegeons-and-dragons-essentials-kit-artwork.jpg/BROK/resize/1200x1200%3E/format/jpg/quality/70/dunegeons-and-dragons-essentials-kit-artwork.jpg
+    art: https://i1.wp.com/dungeonsanddave.com/wp-content/uploads/2016/05/Mend-5th-edition-DnD-cantrip-spell.png?fit=390%2C198&ssl=1
     Bard: Bard
     Cleric: Cleric
     Druid: Druid
@@ -530,7 +530,7 @@ MonoBehaviour:
     sourceBook: 0
     page: 259
     perHigherSpellLevel: 
-    art: https://assets.dicebreaker.com/dunegeons-and-dragons-essentials-kit-artwork.jpg/BROK/resize/1200x1200%3E/format/jpg/quality/70/dunegeons-and-dragons-essentials-kit-artwork.jpg
+    art: 
     Bard: Bard
     Cleric: 
     Druid: 
@@ -567,7 +567,7 @@ MonoBehaviour:
     sourceBook: 0
     page: 260
     perHigherSpellLevel: 
-    art: https://assets.dicebreaker.com/dunegeons-and-dragons-essentials-kit-artwork.jpg/BROK/resize/1200x1200%3E/format/jpg/quality/70/dunegeons-and-dragons-essentials-kit-artwork.jpg
+    art: https://dndwarlock.com/wp-content/uploads/2020/06/Minor-Illusion-5e.jpg
     Bard: Bard
     Cleric: 
     Druid: 
@@ -713,7 +713,7 @@ MonoBehaviour:
     sourceBook: 0
     page: 271
     perHigherSpellLevel: 
-    art: 
+    art: https://1.bp.blogspot.com/-WgMLhGN_GQE/UQAQbF_KUbI/AAAAAAAAAPc/NQUSI9VUs8c/s640/AnnaSteinbauer_Spark.jpg
     Bard: 
     Cleric: 
     Druid: 
@@ -787,7 +787,7 @@ MonoBehaviour:
     sourceBook: 0
     page: 272
     perHigherSpellLevel: 
-    art: 
+    art: https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/52b5d914-8ec4-4b4d-a1bf-d6885de9f09c/d675zo1-4f2d77aa-ed88-40ed-be09-3f2329ca56b4.jpg?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOiIsImlzcyI6InVybjphcHA6Iiwib2JqIjpbW3sicGF0aCI6IlwvZlwvNTJiNWQ5MTQtOGVjNC00YjRkLWExYmYtZDY4ODVkZTlmMDljXC9kNjc1em8xLTRmMmQ3N2FhLWVkODgtNDBlZC1iZTA5LTNmMjMyOWNhNTZiNC5qcGcifV1dLCJhdWQiOlsidXJuOnNlcnZpY2U6ZmlsZS5kb3dubG9hZCJdfQ.yYcS1ekKBD-cZJRvxxOZhJYUGgNfoGUW9I1xLOWemxE
     Bard: 
     Cleric: Cleric
     Druid: 
@@ -861,7 +861,7 @@ MonoBehaviour:
     sourceBook: 0
     page: 275
     perHigherSpellLevel: 
-    art: 
+    art: https://i.pinimg.com/564x/96/1b/75/961b755f5c3790493b4e46cfaf3ea109.jpg
     Bard: 
     Cleric: 
     Druid: 

@@ -9,6 +9,7 @@ using UnityEngine.UI;
 using UnityEditor;
 using System.Collections;
 using UnityEngine.Networking;
+using UnityEngine.Rendering;
 
 namespace DeckRenderer.DnD
 {
@@ -164,15 +165,29 @@ namespace DeckRenderer.DnD
             }
             else
             {
-                Texture2D wwwTex = DownloadHandlerTexture.GetContent(www);
+                Texture2D wwwTexture = DownloadHandlerTexture.GetContent(www);
 
-                var loadedTexture = new Texture2D(wwwTex.width, wwwTex.height, wwwTex.format, true);
+               var mipTexture = new Texture2D(wwwTexture.width, wwwTexture.height, wwwTexture.format, mipChain: true);
 
-                loadedTexture.LoadImage(www.downloadHandler.data);
+                //loadedTexture.LoadRawTextureData(www.downloadHandler.data); //wwwTex.GetRawTextureData<byte>());
 
-                if (wwwTex)
+                //loadedTexture.Apply(true);
+
+                if (SystemInfo.copyTextureSupport != CopyTextureSupport.None)
                 {
-                    artMaterial.SetTexture("_FillTex", wwwTex);
+                    Graphics.CopyTexture(wwwTexture, 0, 0, mipTexture, 0, 0); // copies mip 0
+                }
+                else
+                {
+                    mipTexture.LoadImage(www.downloadHandler.data);
+                }
+
+                mipTexture.Apply(true); // generates all other mips from mip 0
+
+
+                if (mipTexture)
+                {
+                    artMaterial.SetTexture("_FillTex", mipTexture);
                 }
                 else
                 {
